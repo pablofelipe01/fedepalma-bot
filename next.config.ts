@@ -1,23 +1,28 @@
 import type { NextConfig } from 'next';
 
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
-  runtimeCaching: [
-    {
-      urlPattern: /^https?.*/,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: 'offlineCache',
-        expiration: {
-          maxEntries: 200,
+// Dynamic import for next-pwa to avoid TypeScript issues
+const createPWAConfig = () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const withPWA = require('next-pwa')({
+    dest: 'public',
+    register: true,
+    skipWaiting: true,
+    disable: process.env.NODE_ENV === 'development',
+    runtimeCaching: [
+      {
+        urlPattern: /^https?.*/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'offlineCache',
+          expiration: {
+            maxEntries: 200,
+          },
         },
       },
-    },
-  ],
-});
+    ],
+  });
+  return withPWA;
+};
 
 const nextConfig: NextConfig = {
   // Suppress workspace warning
@@ -105,4 +110,5 @@ const nextConfig: NextConfig = {
   },
 };
 
+const withPWA = createPWAConfig();
 export default withPWA(nextConfig);

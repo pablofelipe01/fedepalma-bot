@@ -83,10 +83,14 @@ NODE_ENV=production
 
 ## 🔧 Troubleshooting
 
-### Errores comunes
-1. **Build failures**: Verificar tipos TypeScript
-2. **Environment variables**: Comprobar en Vercel dashboard
-3. **PWA issues**: Verificar manifest.json y service worker
+### ✅ Errores resueltos
+1. **Function Runtimes Error**: ✅ Corregido - Removida configuración incorrecta de `functions.runtime` en vercel.json
+2. **Turbopack Deprecation**: ✅ Corregido - Migrado de `experimental.turbo` a `turbopack` en next.config.ts
+3. **Build Success**: ✅ Verificado - Build local y producción funcionando correctamente
+
+### Errores comunes restantes
+1. **Environment variables**: Verificar en Vercel dashboard que todas las variables estén configuradas
+2. **PWA issues**: Verificar manifest.json y service worker en production
 
 ### Logs y debugging
 ```bash
