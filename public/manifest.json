@@ -1,0 +1,43 @@
+{
+  "name": "Fedepalma 2025 Voice Bot",
+  "short_name": "Fedepalma 2025",
+  "description": "Bot de voz inteligente para el Congreso Nacional de Cultivadores de Palma de Aceite 2025",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2D7A2D",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "es-CO",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Iniciar Conversación",
+      "short_name": "Conversar",
+      "description": "Iniciar una nueva conversación de voz",
+      "url": "/voice-bot",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

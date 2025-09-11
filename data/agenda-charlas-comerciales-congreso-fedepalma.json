@@ -1,0 +1,253 @@
+{
+  "congress_info": {
+    "agenda": [
+      {
+        "day": "Martes 23 Sept. /2025 - Día 1",
+        "sessions": [
+          {
+            "time": "10:00 a.m. - 10:30 a.m.",
+            "company": "AGP Geospatial Company",
+            "speaker": "Darío Boada",
+            "topic": "La revolución digital 4.0 para la palma sostenible en Latinoamérica"
+          },
+          {
+            "time": "10:30 a.m. - 11:00 a.m.",
+            "company": "Yara Colombia",
+            "speaker": "Miguel Amado",
+            "topic": "Cultivando un futuro alimentario positivo para la naturaleza"
+          },
+          {
+            "time": "11:00 a.m. - 11:30 a.m.",
+            "company": "YKL Engineering SDN BHD",
+            "speaker": "HW Wong",
+            "topic": "Análisis comparativo de los expulsores convencionales de palmiste"
+          },
+          {
+            "time": "11:30 a.m. - 12:00 m.",
+            "company": "Semillas Elite de Palma para las Américas",
+            "speaker": "Gabriel Bedoya",
+            "topic": "Manejo eficiente de viveros PalmElit"
+          },
+          {
+            "time": "12:00 m. - 12:30 p.m.",
+            "company": "Klüber Lubrication",
+            "speaker": "Martin Ansotegui",
+            "topic": "MOSH - MOAH"
+          },
+          {
+            "time": "2:00 p.m. - 2:30 p.m.",
+            "company": "Guaicaramo",
+            "speaker": "Martín Herrera Lara",
+            "topic": "La regeneración como esencia en el ADN de Guaicaramo"
+          },
+          {
+            "time": "2:30 p.m. - 3:00 p.m.",
+            "company": "Tecnova Ingeniería",
+            "speaker": "Carlos Andrés Vargas Osorno",
+            "topic": "Retos y desafíos en la adopción de nuevas tecnologías y materias primas en el procesamiento eficiente del aceite de palma"
+          },
+          {
+            "time": "3:00 p.m. - 3:30 p.m.",
+            "company": "Fine Instrument Technology",
+            "speaker": "Daniel Consalter",
+            "topic": "MyPalm y SpecFIT: inteligencia artificial y resonancia en el mercado del aceite de palma"
+          },
+          {
+            "time": "3:30 p.m. - 4:00 p.m.",
+            "company": "Fast Tecnologia Industrial",
+            "speaker": "Jamir Eduardo Dambros",
+            "topic": "Clarificación dinámica Fast: el uso del Tridecanter para el reemplazo total de la clarificación convencional"
+          },
+          {
+            "time": "4:00 p.m. - 4:30 p.m.",
+            "company": "Desmet USA, Inc.",
+            "speaker": "León Pablo Espinosa",
+            "topic": "Mitigación de contaminantes en aceite de palma"
+          },
+          {
+            "time": "4:30 p.m. - 5:00 p.m.",
+            "company": "Propalma Ecuador",
+            "speaker": "Óscar Calahorrano",
+            "topic": "SmartPalm: la aventura de mostrar lo invisible \"La palma ecuatoriana libre de deforestación\""
+          }
+        ]
+      },
+      {
+        "day": "Miércoles 24 Sept. /2025 - Día 2",
+        "sessions": [
+          {
+            "time": "9:00 a.m. - 9:30 a.m.",
+            "company": "Disan Agro",
+            "speaker": "Elias Alexander Silva Arero",
+            "topic": "Optimización del balance nutricional en palma: sinergia entre potasio, magnesio y azufre que maximiza el rendimiento"
+          },
+          {
+            "time": "9:30 a.m. - 10:00 a.m.",
+            "company": "Haifa",
+            "speaker": "William Pachón",
+            "topic": "Tecnología de liberación controlada Multicote en palma africana"
+          },
+          {
+            "time": "10:00 a.m. - 10:30 a.m.",
+            "company": "Agrilab laboratorios S.A.S.",
+            "speaker": "Danny Rodríguez",
+            "topic": "Revolución verde: transformando residuos de palma en abonos, camino a la sostenibilidad y a la rentabilidad"
+          },
+          {
+            "time": "10:30 a.m. - 11:00 a.m.",
+            "company": "Agrobrokers",
+            "speaker": "Andrés Felipe Osorio Jaramillo",
+            "topic": "Estrategias de nutrición con enfoque en sostenibilidad y uso eficiente de recursos"
+          },
+          {
+            "time": "11:00 a.m. - 11:30 a.m.",
+            "company": "Crento Corona",
+            "speaker": "David Monsalve Betancur",
+            "topic": "Herramientas para la eficiencia nutricional y salud del suelo"
+          },
+          {
+            "time": "11:30 a.m. - 12:00 m.",
+            "company": "Abonos AGS",
+            "speakers": ["Eliana Uribe", "Rafael Domínguez"],
+            "topic": "Palmicultura regenerativa"
+          },
+          {
+            "time": "12:00 m. - 12:30 p.m.",
+            "company": "Pegsa",
+            "speaker": "Sebastián Hernández",
+            "topic": "Autogeneración con biogás y motores Jenbacher"
+          },
+          {
+            "time": "1:30 p.m. - 2:00 p.m.",
+            "company": "Tecnopalma",
+            "speaker": "Christian Giraldo Betancourt",
+            "topic": "Geopalma PRO: gestión y administración de datos para transformar tu plantación"
+          },
+          {
+            "time": "2:00 p.m. - 2:30 p.m.",
+            "company": "Solimec",
+            "speaker": "Alfredo Sauvanet",
+            "topic": "Automatización avanzada para industria 4.0"
+          },
+          {
+            "time": "2:30 p.m. - 3:00 p.m.",
+            "company": "Durman Colombia",
+            "speaker": "Julián Granados",
+            "topic": "Paso a paso para establecer un sistema de riego en palma de aceite"
+          },
+          {
+            "time": "3:00 p.m. - 3:30 p.m.",
+            "company": "Agrogaz",
+            "speaker": "Heriberto Dorado",
+            "topic": "Valorización del efluente de palma digerido en fertilización orgánica del cultivo"
+          },
+          {
+            "time": "3:30 p.m. - 4:00 p.m.",
+            "company": "Precisagro",
+            "speaker": "Mario Andres Lasso",
+            "topic": "AgritecGEO, un nuevo modelo de agricultura digital al servicio de la productividad de palma de aceite"
+          },
+          {
+            "time": "4:00 p.m. - 4:30 p.m.",
+            "company": "Proforest",
+            "speakers": ["Juan Carlos Espinosa", "Leonardo Paipilla"],
+            "topic": "25 años transformando la sostenibilidad en impactos positivos para las personas, la naturaleza y el clima"
+          },
+          {
+            "time": "4:30 p.m. - 5:00 p.m.",
+            "company": "Murrin Corporation",
+            "speaker": "Gabriel Chaves",
+            "topic": "El poder de 25 años de mejoramiento genético: Dorado plus, resistencia a la PC desde Elaeis guineensis"
+          },
+          {
+            "time": "5:00 p.m. - 5:30 p.m.",
+            "company": "Grupo Enlasa",
+            "speaker": "Junior Barrios",
+            "topic": "Magnesio: catalizador que impulsa la productividad en palma de aceite"
+          }
+        ]
+      },
+      {
+        "day": "Jueves 25 Sept. /2025 - Día 3",
+        "sessions": [
+          {
+            "time": "9:00 a.m. - 9:30 a.m.",
+            "company": "Bassis",
+            "speaker": "José Daniel Soto",
+            "topic": "Cómo aumentar la productividad de las personas y los procesos en cultivo y extracción de aceite de palma"
+          },
+          {
+            "time": "9:30 a.m. - 10:00 a.m.",
+            "company": "GEA Andina",
+            "speaker": "David Panche",
+            "topic": "Maximizando la sustentabilidad en la extracción de aceite de palma, mediante la recuperación de aceite y tratamiento de efluentes (POME) para la producción de SAF / HVO y biogás"
+          },
+          {
+            "time": "10:00 a.m. - 10:30 a.m.",
+            "company": "ASD de Costa Rica S.A.",
+            "speaker": "Joaquín Torres Acuña",
+            "topic": "Fortalezas de variedades guineensis tolerantes a la PC"
+          },
+          {
+            "time": "10:30 a.m. - 11:00 a.m.",
+            "company": "C.I. Acepalma S.A",
+            "speaker": "Bernd Ditschar",
+            "topic": "Korn Kali + B – una fuente eficiente de potasio, magnesio y boro para fertilizar la palma de aceite con calidad"
+          },
+          {
+            "time": "11:00 a.m. - 11:30 a.m.",
+            "company": "Alfa Laval S.A",
+            "speaker": "BoonKheng Hong",
+            "topic": "Oil plus: decantador de 2 fases para molino CPO"
+          },
+          {
+            "time": "11:30 a.m. - 12:00 m.",
+            "company": "Nitrofert",
+            "speaker": "Juan Pablo Pérez Vélez",
+            "topic": "XperTech: tecnología en cada grano, rentabilidad en cada cosecha"
+          },
+          {
+            "time": "12:00 m. - 12:30 p.m.",
+            "company": "Ingeplant",
+            "speaker": "Ariel Aguilar",
+            "topic": "Bioestimulación y nutrición equilibrada para altos rendimientos en palma de aceite"
+          },
+          {
+            "time": "2:00 p.m. - 2:30 p.m.",
+            "company": "Acerías Paz del Río",
+            "speaker": "Charlton Viveros",
+            "topic": "Fosfatos Thomas: \"Economía circular que alimenta el presente y transforma el futuro agrícola de la palma de aceite\""
+          },
+          {
+            "time": "2:30 p.m. - 3:00 p.m.",
+            "company": "Tractocentro Colombia SAS",
+            "speaker": "Carlos Andrés Giraldo",
+            "topic": "Abonadoras de precisión controlada"
+          },
+          {
+            "time": "3:00 p.m. - 3:30 p.m.",
+            "company": "Industrias Acuña SAS",
+            "speaker": "Ángel Custodio Acuña Llanes",
+            "topic": "Procesos eficientes para la extracción de aceite de palma y aprovechamiento de la biomasa"
+          },
+          {
+            "time": "3:30 p.m. - 4:00 p.m.",
+            "company": "Tecnopalma",
+            "speaker": "Juan Manuel Guerrero Moreno",
+            "topic": "Polinización sólida y líquida: resultados exitosos fruto del acompañamiento de Tecnopalma"
+          },
+          {
+            "time": "4:00 p.m. - 4:30 p.m.",
+            "company": "C.I. Acepalma S.A",
+            "speaker": "Mario Navas García",
+            "topic": "Relación entre la disponibilidad de nutrientes y las propiedades físico-químicas de los fertilizantes en la nutrición de la palma de aceite"
+          }
+        ]
+      }
+    ],
+    "ubicaciones": {
+      "evento": "21st International Oil Palm Conference",
+      "fecha": "23 - 25 Septiembre 2025"
+    }
+  }
+}

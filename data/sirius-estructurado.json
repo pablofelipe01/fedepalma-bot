@@ -1,0 +1,190 @@
+{
+  "sirius_regenerative": {
+    "name": "Sirius Regenerative SAS ZOMAC",
+    "summary": "Empresa colombiana fundada en 2020 que impulsa la transición hacia la agricultura regenerativa desde su biofábrica, combinando biotecnología con IA para regenerar suelos y capturar carbono",
+    "sections": {
+      "identidad_corporativa": {
+        "descripcion": "Sirius es más que una marca; es un movimiento vivo que une el alma humana con la tierra",
+        "eslogan": "Despierta tu alma: Regenera el mundo",
+        "hashtag": "#letsgetSIRIUS"
+      },
+      "informacion_general": {
+        "fundacion": "2020",
+        "tipo_empresa": "Empresa colombiana SAS ZOMAC",
+        "sector": "Agricultura regenerativa y biotecnología",
+        "instalaciones": "Biofábrica especializada"
+      },
+      "proposito": "Impulsar la transición hacia la agricultura regenerativa a través de soluciones integrales que regeneran suelos, reducen insumos sintéticos y contribuyen a la captura de carbono con impacto medible",
+      "tecnologia_core": {
+        "pirolisis": "Transformación de biomasa para producir biochar",
+        "microbiologia": "Desarrollo de consorcios microbianos (hongos entomopatógenos y bacterias benéficas)",
+        "biotecnologia": "Formulación a la medida de productos biológicos",
+        "inteligencia_artificial": "Flujos de trabajo automatizados con IA (Agentics) para escalar operaciones y asegurar consistencia"
+      },
+      "servicios_principales": {
+        "transformacion_biomasa": {
+          "descripcion": "Transformación de residuos orgánicos en bio abonos y fertilizantes naturales",
+          "objetivo": "Producir soluciones vivas para cultivos"
+        },
+        "control_plagas": {
+          "descripcion": "Control biológico mediante amplio portafolio de productos biológicos",
+          "enfoque": "Mejorar suelos y controlar plagas manteniendo equilibrio natural"
+        },
+        "captura_carbono": {
+          "descripcion": "Generación de biochar mediante pirólisis de biomasa agrícola",
+          "beneficio": "Fija carbono estable en el suelo por siglos, mejorando fertilidad y salud"
+        }
+      },
+      "productos": {
+        "biologicos": {
+          "bacillus_thuringiensis": {
+            "tipo": "Bacteria entomopatógena",
+            "funcion": "Produce toxinas letales para combatir larvas de insectos",
+            "aplicacion": "Control biológico de larvas"
+          },
+          "beauveria_bassiana": {
+            "tipo": "Hongo entomopatógeno",
+            "funcion": "Infecta y elimina insectos plaga",
+            "caracteristica": "Agente de control biológico natural"
+          },
+          "trichoderma_harzianum": {
+            "tipo": "Hongo antagonista",
+            "funcion": "Antagonista de hongos patógenos, promueve salud de raíces",
+            "beneficio": "Estimula el crecimiento de la planta"
+          },
+          "metarhizium_anisopliae": {
+            "tipo": "Hongo entomopatógeno",
+            "funcion": "Control de insectos plaga en suelos agrícolas",
+            "aplicacion": "Tratamiento de suelos"
+          },
+          "purpureocillium_lilacinum": {
+            "tipo": "Hongo nematicida biológico",
+            "funcion": "Control de nemátodos y plagas en el suelo",
+            "especialidad": "Control biológico de nemátodos"
+          },
+          "sirius_bacter": {
+            "tipo": "Consorcio de bacterias",
+            "funciones": [
+              "Fijación de nitrógeno",
+              "Descomposición de materia orgánica",
+              "Control de patógenos en suelos agrícolas"
+            ]
+          }
+        },
+        "biochar": {
+          "biochar_puro": {
+            "descripcion": "Biocarbón activado de alta calidad",
+            "caracteristicas": [
+              "Alta retención de agua",
+              "Mayor eficiencia nutricional",
+              "Soporte microbiano",
+              "Regenera los suelos"
+            ]
+          },
+          "biochar_blend": {
+            "descripcion": "Biochar combinado con microbiología benéfica",
+            "beneficios": [
+              "Optimiza nutrición",
+              "Mejora estructura del suelo",
+              "Equilibra balance hídrico"
+            ]
+          },
+          "trichodust": {
+            "descripcion": "Biochar con trichoderma en polvo concentrado",
+            "funciones": [
+              "Fortalece la microbiología",
+              "Coloniza el suelo",
+              "Controla patógenos"
+            ]
+          }
+        }
+      },
+      "diferenciadores": [
+        "Combinación única de biotecnología y pirólisis",
+        "Integración de IA (Agentics) en procesos productivos",
+        "Formulación a la medida de productos biológicos",
+        "Enfoque integral: desde regeneración hasta captura de carbono",
+        "Soluciones que sustituyen agroquímicos sintéticos",
+        "Biofábrica especializada en agricultura regenerativa",
+        "Impacto medible en productividad y resiliencia",
+        "Empresa ZOMAC contribuyendo al desarrollo territorial"
+      ],
+      "beneficios_ambientales": {
+        "regeneracion_suelos": "Mejora de la estructura, fertilidad y salud del suelo",
+        "reduccion_insumos": "Sustitución de agroquímicos sintéticos por alternativas biológicas",
+        "captura_carbono": "Fijación de carbono estable por siglos mediante biochar",
+        "equilibrio_natural": "Mantenimiento del equilibrio ecológico en cultivos",
+        "economia_circular": "Transformación de residuos orgánicos en productos de valor"
+      },
+      "impacto_productivo": {
+        "productividad": "Impacto medible en rendimientos de cultivos",
+        "resiliencia": "Fortalecimiento de la resistencia de las plantas",
+        "sanidad_vegetal": "Mejora del estado fitosanitario de cultivos",
+        "eficiencia_nutricional": "Optimización de la absorción de nutrientes",
+        "sustentabilidad": "Reducción de dependencia de insumos externos"
+      },
+      "tecnologia_innovacion": {
+        "automatizacion": "Flujos de trabajo automatizados con IA",
+        "escalabilidad": "Capacidad de escalar operaciones",
+        "consistencia": "Asegurar calidad desde planta hasta campo",
+        "pirolisis_avanzada": "Tecnología especializada para transformación de biomasa",
+        "microbiologia_aplicada": "Desarrollo de consorcios microbianos especializados"
+      },
+      "contacto": {
+        "sitio_web": "www.siriusregenerative.co",
+        "redes_sociales": {
+          "youtube": "@thesiriuschannel",
+          "instagram": "@sirius.colombia",
+          "twitter": "@sirius.col",
+          "facebook": "@sirius.colombia"
+        }
+      }
+    },
+    "modelo_negocio": {
+      "enfoque": "Agricultura regenerativa integral",
+      "mercado_objetivo": "Productores agrícolas buscando alternativas sostenibles",
+      "propuesta_valor": "Soluciones biológicas que regeneran mientras producen",
+      "ventaja_competitiva": "Integración de biotecnología, pirólisis e IA en un solo modelo"
+    },
+    "alianzas_mencionadas": {
+      "ecosistema_dao": {
+        "rol": "Innovación y comercialización global",
+        "conexion": "Parte de la alianza estratégica mencionada en DAO para diferenciación del aceite de palma colombiano"
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Qué es Sirius Regenerative?",
+        "a": "Es una empresa colombiana fundada en 2020 que impulsa la agricultura regenerativa desde su biofábrica, combinando biotecnología con IA para regenerar suelos y capturar carbono"
+      },
+      {
+        "q": "¿Qué productos biológicos ofrece Sirius?",
+        "a": "Bacillus thuringiensis, Beauveria bassiana, Trichoderma harzianum, Metarhizium anisopliae, Purpureocillium lilacinum y Sirius Bacter (consorcio de bacterias)"
+      },
+      {
+        "q": "¿Qué tipos de biochar produce Sirius?",
+        "a": "Biochar Puro (biocarbón activado), Biochar Blend (con microbiología) y Trichodust (biochar con trichoderma en polvo)"
+      },
+      {
+        "q": "¿Cómo funciona la captura de carbono con biochar?",
+        "a": "Mediante pirólisis de biomasa agrícola se genera biochar que fija carbono estable en el suelo por siglos, mejorando fertilidad y salud del suelo"
+      },
+      {
+        "q": "¿Qué significa que Sirius use IA (Agentics)?",
+        "a": "Utiliza flujos de trabajo automatizados con inteligencia artificial para escalar operaciones y asegurar consistencia desde la planta hasta el campo"
+      },
+      {
+        "q": "¿Cuál es la diferencia entre los productos biológicos de Sirius y los agroquímicos?",
+        "a": "Los productos biológicos mantienen el equilibrio natural, regeneran suelos y controlan plagas sin impactos negativos, sustituyendo agroquímicos sintéticos"
+      },
+      {
+        "q": "¿Qué significa que Sirius sea una empresa ZOMAC?",
+        "a": "Es una empresa ubicada en Zona Más Afectada por el Conflicto, contribuyendo al desarrollo territorial y la paz en estas regiones"
+      },
+      {
+        "q": "¿Cómo mide Sirius el impacto de sus productos?",
+        "a": "Proporciona impacto medible en productividad y resiliencia de cultivos, monitoreando mejoras en suelos, sanidad vegetal y eficiencia nutricional"
+      }
+    ]
+  }
+}

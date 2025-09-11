@@ -1,0 +1,278 @@
+{
+  "fundacion_guaicaramo": {
+    "name": "Fundación Guaicaramo",
+    "summary": "Entidad sin ánimo de lucro creada en 2012, agente de desarrollo territorial que trabaja por mejorar las condiciones para la formación y el desarrollo de competencias escolares básicas en Barranca de Upía",
+    "sections": {
+      "informacion_general": {
+        "creacion": "2012",
+        "tipo": "Entidad sin ánimo de lucro (ONG) debidamente registrada en Colombia",
+        "patrocinador_principal": "Sector privado",
+        "enfoque": "Trabajo por un territorio, en especial por sus Necesidades Básicas Insatisfechas",
+        "experiencia": {
+          "años": "+ de 12 años",
+          "proyectos_ejecutados": "+ de 50 proyectos",
+          "personas_beneficiadas": "+ de 10.000",
+          "aliados": "+ de 20 aliados entre sector privado, público, fondos de cooperación internacional"
+        }
+      },
+      "ubicaciones": {
+        "sede_principal": "Barranca de Upía (Meta)",
+        "sedes": ["Villanueva (Casanare)", "Paratebueno (Cundinamarca)", "Cabuyaro (Meta)"]
+      },
+      "mision": "Mejorar las condiciones de vida de los habitantes de Barranca de Upía, promoviendo la educación tanto en temas técnicos o de oficios, como en competencias del ser y habilidades blandas. Por otra parte, acompañando la gestión pública mediante la asistencia técnica y formación a sus diferentes actores, impactando así positivamente las condiciones de vida para promover el desarrollo sostenible de la región.",
+      "vision": "Ser una organización referente por su excelencia, sensibilidad social y capacidad técnica frente a los sectores de Educación y Gobierno en el Municipio de Barranca de Upía.",
+      "ods_alineados": [
+        "4. Quality education",
+        "5. Gender equality", 
+        "13. Climate action",
+        "16. Peace, justice and strong institutions"
+      ],
+      "ejes_trabajo": ["Educación", "Gestión Pública"],
+      "servicios": [
+        "Formación en competencias escolares básicas",
+        "Asistencia técnica en gestión pública",
+        "Formación en oficios",
+        "Desarrollo de habilidades blandas",
+        "Acompañamiento a instituciones educativas",
+        "Formación en liderazgo comunitario"
+      ],
+      "diferenciadores": [
+        "Enfoque territorial específico en Barranca de Upía",
+        "Trabajo en zona ZOMAC (Zona más afectada por el Conflicto Armado)",
+        "Metodología basada en ciclo PHVA (Planear, Hacer, Verificar, Actuar)",
+        "Medición de impacto a través de indicadores locales",
+        "Alineación con ODS 2030"
+      ],
+      "metodologia": {
+        "enfoque": "Necesidades Básicas Insatisfechas",
+        "fases": [
+          {
+            "fase": "Fase 1 - Estructuración (Planear)",
+            "actividades": ["Aplicación de herramienta de entrada", "Evaluación Ex-Ante"]
+          },
+          {
+            "fase": "Fase 2 - Ejecución (Hacer)", 
+            "actividades": ["Desarrollo de talleres"]
+          },
+          {
+            "fase": "Fase 3 - Evaluación (Verificar)",
+            "actividades": ["Resultados de la intervención", "Aplicación de herramienta de salida", "Evaluación Expost"]
+          },
+          {
+            "fase": "Fase 4 - Actuar",
+            "actividades": ["Retroalimentación hacia el ciclo (volver a Planear)"]
+          }
+        ]
+      },
+      "contacto": {
+        "sede_principal": "Barranca de Upía (Meta)",
+        "sedes_adicionales": ["Villanueva (Casanare)", "Paratebueno (Cundinamarca)", "Cabuyaro (Meta)"]
+      }
+    },
+    "proyectos_actuales_2025": {
+      "pilos_en_construccion": {
+        "ods": "ODS 4: Educación de calidad",
+        "problematica": "Deserción escolar del 5,5% en primaria en la I.E. Francisco Walter (Barranca de Upía)",
+        "objetivo": "Disminuir la tasa de deserción en primaria en dicha institución",
+        "beneficiarios": {
+          "primera_infancia": "30 niños (3 a 6 años)",
+          "infancia": "40 niños (7 a 11 años)", 
+          "estudiantes": "160 estudiantes (grados 3° y 4°)"
+        },
+        "actividades": [
+          "Desarrollo de habilidades psicomotoras y educación del ser",
+          "Formación en alfabetización, pensamiento lógico-matemático, comprensión lectora",
+          "Fomento de lectura y escritura con metodología GEEMPA"
+        ]
+      },
+      "cosechando_semillas": {
+        "ods": "ODS 5: Igualdad de género",
+        "problematica": "Alta tasa de violencia intrafamiliar (183,6 casos por cada 100 mil habitantes)",
+        "objetivo": "Disminuir los casos de violencia intrafamiliar en Barranca de Upía",
+        "beneficiarios": {
+          "niños_preadolescentes": "120 niños y preadolescentes",
+          "formacion_emocional": "110 niños, 105 adolescentes y 130 padres",
+          "liderazgo": "60 mujeres y 30 jóvenes"
+        },
+        "actividades": [
+          "Formación integral en construcción de identidad y educación del ser",
+          "Formación emocional en comunicación, empatía y resolución de conflictos",
+          "Formación en liderazgo comunitario"
+        ]
+      },
+      "servidores_para_la_gente": {
+        "ods": "ODS 16: Paz, justicia e instituciones sólidas",
+        "problematica": "Baja eficacia (68,26%) en la ejecución del Plan de Desarrollo Municipal",
+        "objetivo": "Aumentar la eficacia en la ejecución del Plan de Desarrollo Municipal 2024–2027",
+        "actividades": [
+          "Acompañamiento técnico a la administración municipal",
+          "Formación en gestión pública y liderazgo comunitario"
+        ]
+      },
+      "arquitectos_de_su_destino": {
+        "problematica": "Baja cobertura (8,1%) en formación para jóvenes y adultos; alto desempleo (21,2%)",
+        "objetivo": "Aumentar la participación en programas cortos de formación en Barranca de Upía",
+        "actividades": [
+          "31 espacios académicos para adolescentes en desarrollo emocional",
+          "Formación comunitaria en competencias técnicas, laborales y sociales"
+        ]
+      }
+    },
+    "participantes_2025": {
+      "primera_infancia": 30,
+      "infancia": 290,
+      "habilidades_blandas": 180,
+      "aprovechamiento_tiempo_libre": 105,
+      "formacion_oficios": 40,
+      "formacion_asistencia_tecnica": 120
+    },
+    "indicadores_impacto": [
+      {
+        "problematica": "Alta tasa de deserción correspondiente al 5,5% en último año en los grados de básica primaria de la Institución Educativa Francisco Walter",
+        "meta": "Disminuir la tasa de deserción en 1 punto porcentual en la vigencia 2026",
+        "estrategia": "Actividades lúdicas educativas, fortalecimiento de habilidades emocionales, actividades extracurriculares, promoción de lecto-escritura"
+      },
+      {
+        "problematica": "Alto número de casos por violencia intrafamiliar correspondiente a 183,6 por cada 100 mil habitantes",
+        "meta": "Disminuir en 10 casos de violencia intrafamiliar por cada 100 mil habitantes en la vigencia 2026",
+        "estrategia": "Promoción del aprovechamiento del tiempo libre y fortalecimiento de habilidades emocionales"
+      },
+      {
+        "problematica": "Reducida tasa de cobertura de jóvenes y adultos en programas de formación es de 8,1% en 2024",
+        "meta": "Aumentar en 0,5% la tasa de cobertura de jóvenes y adultos a través de procesos y/o cursos cortos de formación para 2029",
+        "estrategia": "Formación en oficios y competencias técnicas"
+      },
+      {
+        "problematica": "Medio porcentaje de ejecución de indicadores de producto ejecutados (Eficacia) del Plan de Desarrollo Municipal posicionado en 68,26%",
+        "meta": "Aumentar en 2% al año 2027 el porcentaje de ejecución de indicadores de producto ejecutados",
+        "estrategia": "Espacios formativos en gestión pública para fortalecer capacidades de servidores públicos y organizaciones"
+      }
+    ],
+    "plan_educativo_7_años": {
+      "total_proyectos": 32,
+      "pilares": [
+        {
+          "nombre": "Gestión Educativa",
+          "proyectos": 9,
+          "enfasis": [
+            "Gestión del conocimiento",
+            "Práctica docente", 
+            "Gestión del aula",
+            "Acompañamiento y seguimiento"
+          ]
+        },
+        {
+          "nombre": "Mejora continua",
+          "proyectos": 12,
+          "enfasis": [
+            "Innovación",
+            "Eficiencia y efectividad en la enseñanza y el aprendizaje",
+            "Experiencias educativas significativas y relevantes"
+          ]
+        },
+        {
+          "nombre": "Fortalecimiento de la comunidad", 
+          "proyectos": 11,
+          "enfasis": [
+            "Desarrollo de capacidades fundamentales para el buen vivir",
+            "Proyección social",
+            "Impacto local",
+            "Construcción de la paz"
+          ]
+        }
+      ]
+    },
+    "proyectos_disponibles": [
+      "Preparándonos para las Pruebas Saber",
+      "Ruta saber 11: Preguntas acertadas, Respuestas correctas",
+      "Transformando Nuestra Escuela: Espacios Innovadores, Tecnología y Creatividad",
+      "Construyendo un Espacio Educativo Integral para el Desarrollo de Habilidades",
+      "El cielo es el límite (Estudiantes de 9° a 11°)",
+      "Paternidades saludables para hijos felices",
+      "Prevención del Consumo de Sustancias Psicoactivas",
+      "Aulas interactivas",
+      "Mediadores del saber",
+      "Me divierto leyendo bachiller",
+      "Laboratorio móvil de inglés",
+      "Escuela de Padres",
+      "Comunidades de Aprendizaje",
+      "Diseño de Evaluaciones",
+      "Programa de Inclusión Educativa",
+      "Educación Rural Primaria",
+      "Escuelas de Paz",
+      "Evaluación y Retroalimentación Docente",
+      "Modernización de Infraestructura y Recursos",
+      "Show de Talentos",
+      "Alianzas Productivas SENA",
+      "Uso de Herramientas Digitales en el Aula TIC",
+      "Educación sexual y reproductiva",
+      "Jóvenes Emprendedores",
+      "Descubriendo mi estilo de aprendizaje",
+      "Memoria llanera",
+      "Monitores en el aula",
+      "Mi Barrio, Mi Responsabilidad",
+      "Derribando barreras",
+      "Deportes en comunidad",
+      "Arte y Cultura para Todos",
+      "Un cuerpo sano, una mente creativa"
+    ],
+    "obras_por_impuestos": {
+      "descripcion": "Primer proyecto ejecutado en Barranca de Upía bajo el mecanismo Obras por Impuestos-Opción Fiducia",
+      "objetivo": "Mejorar las condiciones para la formación y el desarrollo de competencias escolares básicas de la comunidad educativa de la Institución Educativa Francisco Walter",
+      "datos_generales": {
+        "alumnos": 1534,
+        "docentes": 63,
+        "instituciones": 1,
+        "sedes_educativas": 8,
+        "inversion_total": "$3,630,005,623.96"
+      },
+      "inversion_por_componente": {
+        "apropiacion": {
+          "valor": "$123,686,666.67",
+          "descripcion": "Diplomado a 63 docentes"
+        },
+        "mobiliario_elementos_deportivos": {
+          "valor": "$973,978,490.26",
+          "elementos": ["6 Aulas TIM", "2 Bibliotecas", "49 Aulas básicas", "844 Elementos deportivos"]
+        },
+        "tecnologia": {
+          "valor": "$1,471,173,629.65",
+          "elementos": ["160 PC", "57 Pantallas interactivas", "41 Supresores de 6 salidas", "46 Supresores de 2 salidas"]
+        },
+        "administrativos": {
+          "valor": "$1,061,166,837.38",
+          "elementos": ["Gerencia", "Interventoría", "Fiducia", "Contingente (10%)", "Gravamen financiero"]
+        }
+      }
+    },
+    "formas_contribuir": [
+      "Como socio estratégico en la ejecución de proyectos",
+      "Vía donación de recursos",
+      "Prestación de servicios profesionales",
+      "Donación de material pedagógico y libros",
+      "Elementos tecnológicos para infraestructura educativa"
+    ],
+    "faq": [
+      {
+        "q": "¿Dónde trabaja la Fundación Guaicaramo?",
+        "a": "Sede principal en Barranca de Upía (Meta) y sedes en Villanueva (Casanare), Paratebueno (Cundinamarca), Cabuyaro (Meta)"
+      },
+      {
+        "q": "¿Cuál es la experiencia de la Fundación?",
+        "a": "Más de 12 años de experiencia, más de 50 proyectos ejecutados, más de 10.000 personas beneficiadas, más de 20 aliados"
+      },
+      {
+        "q": "¿Con qué ODS están alineados los proyectos?",
+        "a": "ODS 4 (Educación de calidad), ODS 5 (Igualdad de género), ODS 13 (Acción por el clima), ODS 16 (Paz, justicia e instituciones sólidas)"
+      },
+      {
+        "q": "¿Qué tipo de población atienden?",
+        "a": "Diferentes grupos poblacionales mediante diversos programas y proyectos, en especial población vulnerable del municipio de Barranca de Upía"
+      },
+      {
+        "q": "¿Cómo se puede contribuir con la Fundación?",
+        "a": "Como socio estratégico, donación de recursos, prestación de servicios profesionales, donación de material pedagógico o elementos tecnológicos"
+      }
+    ]
+  }
+}

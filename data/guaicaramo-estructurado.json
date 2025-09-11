@@ -1,0 +1,329 @@
+{
+  "guaicaramo": {
+    "name": "Guaicaramo",
+    "summary": "Empresa agroindustrial fundada en 1977, dedicada principalmente al cultivo de palma de aceite, con más de 40 años transformando un territorio en los llanos orientales conectando la productividad del campo con el bienestar de las personas",
+    "sections": {
+      "historia_y_contexto": {
+        "fundacion": "1977",
+        "fundador": "Roberto Herrera Vélez",
+        "ubicacion_principal": "Municipio de Barranca de Upía, Meta",
+        "significado_nombre": "De donde viene el agua (en lengua local)",
+        "inicio": "400 hectáreas de plantación",
+        "actual": {
+          "hectareas_cultivadas": "aproximadamente 9.400 hectáreas",
+          "planta_extractora": "capacidad de 52 toneladas/hora",
+          "generacion": "Segunda generación (cuatro hijos del fundador)",
+          "ambiente": "Negocio familiar con valores de unión, armonía y amor por la tierra"
+        }
+      },
+      "mision": "Guaicaramo es una empresa dedicada al desarrollo de la agroindustria, con énfasis en la palma de aceite y sus derivados, comprometida con la sostenibilidad, la comunidad, sus empleados, socios y clientes, siguiendo principios de calidad y eficiencia",
+      "vision": "Ser una empresa líder reconocida en Colombia en el sector de la palma de aceite, biocombustibles, ganadería, derivados lácteos y agricultura, satisfaciendo mercados nacionales e internacionales en beneficio de los clientes, la comunidad y sus socios",
+      "proposito_superior": "Generar bienestar y desarrollo sostenible",
+      "valores_corporativos": {
+        "transparencia": {
+          "descripcion": "Valoramos la honestidad y transparencia en todas nuestras relaciones humanas",
+          "aplicacion": "Generamos confianza y siempre tendremos en cuenta las necesidades, objetivos y retos de nuestros interlocutores en el proceso de toma de decisiones"
+        },
+        "pasion": {
+          "descripcion": "Caminamos hacia la excelencia en cada acción",
+          "aplicacion": "Nos encanta y le ponemos corazón a lo que hacemos, impulsamos mejoras constantes y resultados excepcionales que contribuyen al desarrollo y bienestar de todos"
+        },
+        "liderazgo": {
+          "descripcion": "Motivar, inspirar y empoderar constantemente para encontrar soluciones",
+          "aplicacion": "Desarrollamos y empoderamos a las personas en su proceso de crecimiento, fortalecemos el trabajo en equipo, la adaptación al cambio y la ejecución de transformaciones necesarias"
+        },
+        "emprendimiento": {
+          "descripcion": "Retar el statu quo en toda la organización",
+          "aplicacion": "Actitud y mentalidad que nos inspira a ser creativos, evolucionar, innovar y asumir riesgos en la búsqueda de nuevos y mejores procesos y estrategias"
+        }
+      },
+      "competencias_distintivas": [
+        {
+          "nombre": "Protección y reducción permanente del impacto ambiental",
+          "descripcion": "Trabajamos conscientemente en la preservación del entorno natural a través de prácticas y tecnologías innovadoras eco-eficientes"
+        },
+        {
+          "nombre": "Productos y servicios que producen asombro",
+          "descripcion": "Ofrecemos soluciones innovadoras que sobrepasen expectativas y sorprendan a nuestros clientes"
+        },
+        {
+          "nombre": "Nuevos retos que nos mueven",
+          "descripcion": "Adoptamos la innovación como proceso fundamental, reconociendo que la única constante es el cambio"
+        },
+        {
+          "nombre": "Construimos comunidad",
+          "descripcion": "Ponemos en el centro el 'buen trato', buscando relaciones respetuosas y cercanas, extendiendo esta filosofía a todos nuestros recursos vitales"
+        }
+      ],
+      "productos": {
+        "aceites": {
+          "aceite_crudo_palma_cpo": {
+            "descripcion": "Producto graso de origen vegetal obtenido mediante extracción mecánica del mesocarpio del fruto de palma",
+            "proceso": "Sin procesos químicos, separado por centrifugación",
+            "usos": "Producción de aceites para mesa y cocina, margarinas y grasas industriales"
+          },
+          "aceite_alto_oleico": {
+            "descripcion": "Producto de la pulpa del fruto de palma híbrida obtenido mediante extracción mecánica",
+            "caracteristicas": "80%-90% ácido oleico, similar o superior al aceite de oliva, rico en vitaminas A y E",
+            "usos": "Industria comestible y no comestible, biocombustibles, industria farmacéutica",
+            "certificacion": "Orgánica"
+          },
+          "aceite_palmiste_pko": {
+            "descripcion": "Obtenido mediante extracción físico-mecánica por prensado de la almendra",
+            "caracteristicas": "Contiene ácidos grasos saturados, monoinsaturados y poliinsaturados",
+            "usos": "Industria alimenticia y cosmética"
+          },
+          "torta_palmiste": {
+            "descripcion": "Subproducto resultante del prensado mecánico de la almendra de palma",
+            "usos": "Base para alimento concentrado de animales, especialmente ganado bovino"
+          }
+        },
+        "citricos": {
+          "hectareas": "208 hectáreas sembradas",
+          "arboles": "55.524 árboles",
+          "produccion_anual": "2.684 toneladas",
+          "empleos_generados": "50 colaboradores directos e indirectos",
+          "variedades": {
+            "limon_tahiti": "Cultivo principal de cítricos",
+            "naranja_valencia_olinda": "Variedad especializada"
+          },
+          "enfoque_social": "Inclusión de mujeres cabeza de hogar en actividades de cosecha"
+        },
+        "ganaderia": {
+          "inicio": "2012",
+          "tipo": "Cría y amanse de búfalas de agua y levante de ganado Cebú",
+          "certificacion": "Hato lechero de búfalas con certificación orgánica",
+          "productos_lacteos": ["Mozzarella", "Yogures"],
+          "enfoque": "Mejoramiento genético y procesos de innovación"
+        }
+      },
+      "servicios": [
+        "Producción y comercialización de aceite de palma",
+        "Desarrollo de productos innovadores (aceite alto oleico)",
+        "Servicios de extracción con capacidad de 52 toneladas/hora",
+        "Comercialización de conocimientos y buenas prácticas agrícolas",
+        "Programas de certificación sostenible (RSPO)",
+        "Proyectos sociales a través de Fundación Guaicaramo"
+      ],
+      "diferenciadores": [
+        "Más de 40 años de experiencia en agroindustria palmera",
+        "Modelo de negocio diversificado (palma, cítricos, ganadería)",
+        "Innovación en aceite alto oleico con certificación orgánica",
+        "Filosofía del 'buen trato' como centro de la organización",
+        "Personaje institucional 'Doña Pepa' para bienestar laboral",
+        "Compromiso con agricultura regenerativa y cero deforestación",
+        "Generación de energía renovable mediante biogás",
+        "Modelo integral de desarrollo territorial sostenible"
+      ],
+      "sostenibilidad_ambiental": {
+        "energia_renovable": {
+          "fuente": "Biogás producido en tratamiento de aguas residuales industriales",
+          "beneficio": "Planta autosuficiente en energía, reducción de dependencia de red pública",
+          "impacto": "Disminución de uso de combustibles fósiles y reducción de huella de carbono"
+        },
+        "conservacion_biodiversidad": {
+          "areas_avc": "Áreas de Alto Valor de Conservación identificadas y protegidas",
+          "concurso_rap": {
+            "nombre": "Concurso de Avistamiento de Especies Raras, Amenazadas y en Peligro",
+            "resultados_2019": "27 participantes, 43 especies reportadas, 151 fotos/videos",
+            "resultados_2020": "18 participantes, 77 especies reportadas, 170 fotos/videos",
+            "resultados_2021": "20 participantes, 82 especies reportadas, 186 fotos/videos"
+          },
+          "camaras_trampa": "Alianza con Cormacarena, más de 30 especies identificadas incluyendo ocelotes, jaguarundíes, paujiles"
+        },
+        "gestion_agua": {
+          "sistema": "Sistema de Tratamiento de Aguas Residuales Industriales (STARI)",
+          "practicas": "Programa de uso eficiente y ahorro de agua, técnicas de recirculación y recuperación"
+        },
+        "reforestacion": "Planes de reforestación con especies nativas para recuperación de suelos y protección de nacientes",
+        "manejo_residuos": {
+          "pasos": [
+            "Cultura ambiental - Capacitación en separación de residuos",
+            "Separación en la fuente - Puntos ecológicos codificados",
+            "Recolección interna - Rutas y cronogramas mensuales",
+            "Almacenamiento adecuado - Centros de acopio con estándares ambientales",
+            "Disposición final responsable - Gestores autorizados"
+          ]
+        },
+        "certificaciones": ["RSPO (Mesa Redonda de Aceite de Palma Sostenible)", "Acuerdo de cero deforestación"],
+        "reduccion_huella_carbono": "Más de 30.000 toneladas de CO2 reducidas en 2022"
+      },
+      "sostenibilidad_social": {
+        "fundacion_guaicaramo": {
+          "creacion": "2014",
+          "objetivo": "Liderar desarrollo territorial sostenible en la región de influencia",
+          "enfoque": "Proyectos educativos, de salud, infraestructura básica y cultura ciudadana"
+        },
+        "bienestar_laboral": {
+          "beneficios_2022": [
+            "Auxilios de vivienda",
+            "Auxilios por nacimiento",
+            "Auxilios por matrimonio",
+            "Auxilios de transporte",
+            "Auxilios educativos a colaboradores",
+            "Auxilios de alimentación",
+            "Auxilios por calamidad doméstica",
+            "Becas para hijos de colaboradores",
+            "Regalos para hijos de colaboradores (U.E.A.)"
+          ],
+          "impacto": "Más de 1000 familias beneficiadas en Barranca de Upía y Villanueva"
+        },
+        "programas_salud": {
+          "brigada_salud_2024": {
+            "nombre": "Brigada de Salud 'Transformando Vidas'",
+            "aliado": "Patrulla Aérea Civil Colombiana",
+            "servicios": "Medicina general, odontología, optometría",
+            "impacto": "Cientos de atenciones médicas gratuitas"
+          }
+        },
+        "educacion": {
+          "obras_por_impuestos": {
+            "nombre": "Guaicaramo siembra futuro",
+            "institucion": "Institución Educativa Francisco Walter",
+            "beneficiarios": "Más de 1.650 estudiantes",
+            "dotacion": "Computadores, aulas renovadas, mobiliario nuevo, pantallas interactivas, capacitaciones docentes",
+            "fecha_lanzamiento": "25 de abril de 2025"
+          }
+        }
+      },
+      "innovacion_mejora_continua": {
+        "proyecto_agro_beneficio": {
+          "enfoque": "Reingeniería de procesos para elevar eficiencia en campo y planta",
+          "pilot_polinizacion": {
+            "duracion": "4 meses",
+            "metodologia": "Supervisión técnica diaria, herramientas precisas, evaluación constante",
+            "resultados": {
+              "tasa_fertilizacion": "De 69% a 83%",
+              "peso_promedio_racimos": "De 18 kg a 23 kg"
+            }
+          },
+          "impacto_organizacional": "Cambio de mentalidad hacia mejora continua, reducción de rotación de personal"
+        },
+        "productos_innovadores": {
+          "aceite_alto_oleico": {
+            "innovacion": "Cultivo de híbridos O×G",
+            "propiedades": "80%-90% ácido oleico, propiedades más saludables",
+            "certificacion": "Orgánica"
+          }
+        },
+        "tecnologias_verdes": [
+          "Biodigestores avanzados para planta de biogás",
+          "Cámaras trampa para monitoreo de fauna",
+          "Sistemas de información geográfica (SIG)",
+          "Software de monitoreo en tiempo real",
+          "Aplicaciones móviles y plataformas virtuales"
+        ]
+      },
+      "cultura_organizacional": {
+        "dona_pepa": {
+          "descripcion": "Personaje institucional que actúa como madrina de la empresa",
+          "funcion": "Velar por el bienestar de trabajadores, enseñar valores, acompañar en labores",
+          "historia": "Campaña original de 2001, retomada recientemente",
+          "impacto": "Fortalecimiento del diálogo con trabajadores, compromiso con trato digno",
+          "material_educativo": "Cartilla 'Las Aventuras de Doña Pepa' sobre el valor del Buen Trato"
+        },
+        "ambiente_laboral": {
+          "enfoque": "Cultura de bienestar y buen trato",
+          "actividades": "Actividades recreativas, celebraciones, jornadas de esparcimiento",
+          "formacion": "Capacitación y formación continua en todas las áreas",
+          "filosofia": "La empresa como una gran familia"
+        },
+        "liderazgo": {
+          "estilo": "Liderazgo empoderador y cercano",
+          "practicas": "Toma de decisiones participativa, comunicación transparente",
+          "metodologia": "Reuniones semanales de retroalimentación y planificación"
+        }
+      },
+      "contacto": {
+        "sede_principal": "Barranca de Upía, Meta, Colombia",
+        "redes_sociales": {
+          "linkedin": "https://www.linkedin.com/company/11425112",
+          "instagram": "https://www.instagram.com/guaicaramo/"
+        },
+        "sitio_web": "https://guaicaramo.com",
+        "email_comunicaciones": "comunicaciones@guaicaramo.com"
+      },
+      "politicas_corporativas": [
+        "Política Antifraude y Anticorrupción",
+        "Código de Ética y Conducta",
+        "Código de Ética y Conducta a Proveedores",
+        "Política de Tratamientos de Datos Personales"
+      ]
+    },
+    "impacto_sectorial": {
+      "liderazgo_gremial": "Referente en sostenibilidad ambiental e innovación productiva",
+      "contribucion_economica": "Aporta significativamente a la producción de aceite de palma en zona oriental (Meta y Casanare)",
+      "sostenibilidad_sectorial": "Cumple estándares RSPO y compromisos de cero deforestación",
+      "construccion_paz": "Genera empleo formal para más de 500 personas, contribuye a estabilidad territorial",
+      "reconocimientos": "Destacado por Fedepalma por promover buenas prácticas socioambientales"
+    },
+    "relacion_stakeholders": {
+      "empleados": {
+        "enfoque": "Miembros de la familia Guaicaramo",
+        "base": "Buen trato, respeto y equidad",
+        "beneficios": "Condiciones dignas, capacitación, bonos y auxilios",
+        "comunicacion": "Canales abiertos incluyendo personaje Doña Pepa"
+      },
+      "aliados": {
+        "gremiales": "Fedepalma - participación activa en comités",
+        "gubernamentales": "Convenios con alcaldías, proyectos Obras por Impuestos",
+        "ambientales": "Cormacarena - proyectos de conservación",
+        "internacionales": "Organización Solidaridad - programas educativos, RSPO"
+      },
+      "clientes": {
+        "orientacion": "Productos que 'producen asombro'",
+        "mercados": "Refinerías, fabricantes nacionales, compradores internacionales",
+        "diferenciacion": "Aceite alto oleico sostenible con trazabilidad",
+        "relacion": "Comunicación cercana, transparencia en valores"
+      },
+      "comunidades": {
+        "enfoque": "Parte intrínseca del ecosistema empresarial",
+        "empleo": "Prioriza contratación de mano de obra local",
+        "dialogo": "Reuniones periódicas en veredas",
+        "apoyo": "Juntas de Acción Comunal, mejoras barriales"
+      }
+    },
+    "lineas_negocio_complementarias": {
+      "del_llano_alto_oleico": {
+        "descripcion": "Empresa pionera en comercialización de Aceite Alto Oleico",
+        "productos": {
+          "aceite_noli": "Aceite rojo con altas cantidades de fitonutrientes, ideal para ensaladas",
+          "aceite_palmali": "Perfecto para frituras profundas, 100% puro y colombiano, 30% más rendimiento"
+        },
+        "sostenibilidad": "Modelo productivo circular, agricultura regenerativa",
+        "certificaciones": ["RSPO", "APSCO", "NON-GMO", "ISCC", "KOSHER"],
+        "contacto": "comercial@altooleico.com, 3102270147"
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Cuándo fue fundada Guaicaramo y por quién?",
+        "a": "Guaicaramo fue fundada en 1977 por Roberto Herrera Vélez, iniciando con 400 hectáreas de plantación en Barranca de Upía, Meta"
+      },
+      {
+        "q": "¿Qué significa el nombre Guaicaramo?",
+        "a": "Guaicaramo significa 'de donde viene el agua' en lengua local, reflejando su conexión con la naturaleza desde sus inicios"
+      },
+      {
+        "q": "¿Cuáles son los productos principales de Guaicaramo?",
+        "a": "Aceite crudo de palma (CPO), aceite alto oleico, aceite de palmiste, torta de palmiste, cítricos (limón Tahití y naranja Valencia), y productos lácteos de búfala"
+      },
+      {
+        "q": "¿Qué es el proyecto 'Guaicaramo siembra futuro'?",
+        "a": "Es un proyecto de Obras por Impuestos lanzado en abril de 2025 que beneficia a más de 1.650 estudiantes de la Institución Educativa Francisco Walter con tecnología, mobiliario y capacitación docente"
+      },
+      {
+        "q": "¿Qué es Doña Pepa en Guaicaramo?",
+        "a": "Es un personaje institucional que actúa como madrina de la empresa, velando por el bienestar de los trabajadores y enseñando valores como el buen trato de forma amable y cercana"
+      },
+      {
+        "q": "¿Qué iniciativas ambientales desarrolla Guaicaramo?",
+        "a": "Generación de energía mediante biogás, conservación de biodiversidad con Concurso RAP, cámaras trampa, reforestación, manejo integral de residuos y compromiso de cero deforestación"
+      },
+      {
+        "q": "¿Cuál es la filosofía del 'buen trato' en Guaicaramo?",
+        "a": "Es el centro de la organización, buscando relaciones respetuosas y cercanas que se extienden a empleados, comunidades y recursos naturales, fomentando empoderamiento y colaboración"
+      }
+    ]
+  }
+}

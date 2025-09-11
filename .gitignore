@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# PWA files
+**/sw.js
+**/workbox-*.js
+**/worker-*.js
+**/fallback-*.js
+
+# Turbo
+.turbo/
+
+# Logs
+logs
+*.log

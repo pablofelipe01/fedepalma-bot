@@ -1,0 +1,301 @@
+{
+  "del_llano_alto_oleico": {
+    "name": "Del Llano Alto Oleico (DAO)",
+    "summary": "Empresa colombiana del sector agroindustrial pionera en aceite de palma Alto Oleico (HOPO), fundada hace más de diez años en los Llanos Orientales por una familia con cuatro generaciones de experiencia en el sector palmero",
+    "sections": {
+      "historia_y_contexto": {
+        "fundacion": "Hace más de diez años",
+        "ubicacion": "Llanos Orientales, Colombia",
+        "experiencia_familiar": "Cuatro generaciones en el sector palmero",
+        "especializacion": "Palma híbrida Alto Oleico (OxG)",
+        "pioneria": "Primera empresa en Colombia en posicionar el aceite de palma Alto Oleico (HOPO) como producto saludable, estable y sostenible",
+        "reconocimientos": [
+          "Premio de Fedepalma a la mejor oleína para freír",
+          "Nominada al premio RSPO a la Excelencia en Conservación por proyectos de biodiversidad"
+        ]
+      },
+      "proposito": "Inspirar confianza a través de productos que mejoren la salud, la nutrición y el bienestar para un futuro sostenible, regenerativo y resiliente",
+      "mision": "Ser líderes en la comercialización global de aceites y grasas saludables y sostenibles, con calidad, confianza y trazabilidad desde el origen",
+      "vision": "Ser reconocidos globalmente como referentes en aceites saludables, siendo el aliado confiable de clientes que buscan calidad y sostenibilidad",
+      "valores_corporativos": {
+        "transparencia": "Honestidad y claridad en todas las relaciones",
+        "pasion": "Trabajar con entusiasmo y excelencia",
+        "liderazgo": "Motivar, inspirar y empoderar para encontrar soluciones",
+        "emprendimiento": "Actitud creativa e innovadora, desafiando el statu quo"
+      },
+      "cultura_organizacional": {
+        "principios": ["Respeto", "Cercanía", "Buen trato"],
+        "aplicacion": "Con colaboradores, clientes, comunidades y medio ambiente",
+        "base": "Confianza, innovación y liderazgo inspirador"
+      },
+      "competencias_distintivas": [
+        "Protección ambiental",
+        "Innovación continua",
+        "Adaptación a retos",
+        "Construcción de comunidad"
+      ],
+      "pilares_estrategicos": {
+        "planeta": "Sostenibilidad ambiental",
+        "producto": "Calidad e innovación",
+        "personas": "Talento y comunidades",
+        "desempeno": "Excelencia operativa",
+        "rentabilidad": "Crecimiento con propósito"
+      },
+      "productos": {
+        "aceite_crudo_palma_alto_oleico_hopo": {
+          "descripcion": "Extraído del fruto, rico en ácido oleico",
+          "caracteristicas": ["Alto contenido de carotenoides", "Rico en vitamina E", "100% del fruto (seedless)"],
+          "proceso": "Extracción mecánica sin procesos químicos"
+        },
+        "aceite_refinado_rbd": {
+          "descripcion": "Aceite refinado físicamente",
+          "usos": ["Alimentos", "Fritura industrial", "Alimentos procesados"],
+          "proceso": "Refinado físico, sin solventes"
+        },
+        "oleina_alto_oleico": {
+          "descripcion": "Fracción líquida del aceite de palma alto oleico",
+          "marca_principal": "Palmalí",
+          "uso_principal": "Fritura industrial y HORECA",
+          "especificaciones": {
+            "acidez": "≤0,1%",
+            "humedad": "≤0,1%",
+            "indice_peroxidos": "≤1,0 meq/kg",
+            "acido_oleico": "55-58%",
+            "caracteristicas": ["Libre de trans", "Libre de colesterol", "Estable en fritura", "Más ciclos de uso", "Sabor limpio"]
+          }
+        },
+        "estearina_alto_oleico": {
+          "descripcion": "Fracción sólida del aceite de palma alto oleico",
+          "marca_principal": "Cremana",
+          "usos": ["Shortenings", "Margarinas", "Panificación", "Repostería"]
+        },
+        "aceite_palmiste_pko": {
+          "descripcion": "Aceite complementario obtenido de la semilla",
+          "usos": ["Repostería", "Cosméticos", "Oleoquímica"]
+        },
+        "glicerina_cruda": {
+          "descripcion": "Subproducto aprovechado en economía circular",
+          "enfoque": "Aprovechamiento sostenible de todos los componentes"
+        }
+      },
+      "marcas": {
+        "palmali": {
+          "tipo": "Oleína alto oleico",
+          "mercado_objetivo": "HORECA e industria",
+          "ventaja": "Alto rendimiento en freidoras, hasta 30% más de rendimiento",
+          "caracteristicas": "100% puro y colombiano, alta resistencia a la oxidación, vida útil prolongada"
+        },
+        "cremana": {
+          "tipo": "Shortenings y grasas sólidas",
+          "mercado_objetivo": "Panificación y repostería",
+          "aplicaciones": "Productos de panadería y confitería"
+        },
+        "noli": {
+          "tipo": "Aceite rojo alto oleico",
+          "mercado_objetivo": "Consumidor final",
+          "caracteristicas": "Rico en antioxidantes, ideal para aderezar ensaladas",
+          "posicionamiento": "Opción diferente y costo eficiente al aceite de oliva",
+          "variantes_futuras": "Nolí Pan&Grill, blends con oliva"
+        }
+      },
+      "diferenciadores_tecnicos": [
+        "Aceite seedless (del fruto, no de semillas)",
+        "Perfil similar al aceite de oliva (alto en omega-9)",
+        "Antioxidantes naturales (vitaminas A y E)",
+        "Más estable al calor que aceites de soya, maíz o girasol",
+        "Menor generación de compuestos tóxicos al freír",
+        "Libre de trans y contaminantes de extracción química",
+        "Alto contenido de fitonutrientes"
+      ],
+      "certificaciones": {
+        "actuales": [
+          "RSPO (palma sostenible, identidad preservada)",
+          "ISCC (biocombustibles sostenibles)",
+          "No deforestación / EUDR compliance",
+          "Non-GMO",
+          "Kosher",
+          "Aceite 100% colombiano (Fedepalma)"
+        ],
+        "metas_2025": [
+          "Empresa B (B Corp)",
+          "Great Place to Work"
+        ]
+      },
+      "sostenibilidad": {
+        "praticas_agricolas": {
+          "uso_tierra": "Cultivo en tierras degradadas, sin deforestación",
+          "productividad": "9-10 toneladas por hectárea",
+          "restauracion": "Implementa restauración ecológica",
+          "biodiversidad": "Conservación de biodiversidad"
+        },
+        "impacto_ambiental": {
+          "emisiones": "Reducción de emisiones de CO2",
+          "huella_carbono": "Más de 30.000 toneladas de CO2 reducidas en 2022",
+          "economia_circular": [
+            "Recolección de aceites de cocina usados",
+            "Aprovechamiento de subproductos",
+            "Carpado de piscinas de oxidación para generación de biogás",
+            "Cogenización de energía para procesos de plantaciones"
+          ]
+        },
+        "impacto_salud": "Contribuye a salud pública reemplazando aceites altos en omega-6 por oleína más estable y saludable"
+      },
+      "analisis_dofa": {
+        "fortalezas": [
+          "Experiencia en aceite alto oleico",
+          "Suministro estable de materia prima",
+          "Resiliencia empresarial",
+          "Know-how técnico especializado",
+          "Liderazgo en la cámara de aceite alto oleico"
+        ],
+        "debilidades": [
+          "Capacidad limitada de acopio y refinación",
+          "Costos logísticos altos",
+          "Posicionamiento de marca en proceso",
+          "Dependencia de maquila"
+        ],
+        "oportunidades": [
+          "Diferenciación en mercados de alimentos saludables",
+          "Nuevos productos (oleínas, shortenings, aceites infusionados)",
+          "Certificaciones adicionales",
+          "Trazabilidad avanzada"
+        ],
+        "amenazas": [
+          "Competencia internacional agresiva",
+          "Volatilidad de precios",
+          "Estigmatización de la palma",
+          "Regulaciones en etiquetado"
+        ]
+      },
+      "proyecciones_futuras": {
+        "internacionalizacion": ["Estados Unidos", "Europa", "Asia"],
+        "expansion_productos": [
+          "Línea ampliada de oleínas",
+          "Shortenings especializados",
+          "Aceites infusionados"
+        ],
+        "lanzamientos": [
+          "Nolí Pan&Grill",
+          "Blends con aceite de oliva",
+          "Servicios de recolección de aceites usados"
+        ],
+        "inversiones": [
+          "Refinería propia",
+          "E-commerce de aceites saludables"
+        ]
+      },
+      "alianzas_estrategicas": {
+        "descripcion": "DAO lidera una alianza estratégica para diferenciar el aceite de palma colombiano en mercados premium",
+        "objetivo": "Ofrecer trazabilidad, sostenibilidad y volumen competitivo",
+        "socios": {
+          "guaicaramo": {
+            "rol": "Suministro de palma alto oleico",
+            "descripcion": "Proveedor principal de materia prima especializada"
+          },
+          "evoagro": {
+            "rol": "Fertilizantes vía trueque por aceite",
+            "descripcion": "Intercambio de productos para optimizar cadena de valor"
+          },
+          "bio_d": {
+            "rol": "Biocombustibles y coproductos",
+            "descripcion": "Aprovechamiento integral de subproductos"
+          },
+          "sirius": {
+            "rol": "Innovación y comercialización global",
+            "descripcion": "Desarrollo de mercados internacionales"
+          }
+        }
+      },
+      "servicios": [
+        "Comercialización global de aceites y grasas saludables",
+        "Desarrollo de productos personalizados",
+        "Trazabilidad completa desde el origen",
+        "Asesoría técnica en aplicaciones industriales",
+        "Servicios de recolección de aceites usados",
+        "Certificación y cumplimiento de estándares internacionales"
+      ],
+      "diferenciadores": [
+        "Pioneros en aceite de palma alto oleico en Colombia",
+        "Cuatro generaciones de experiencia familiar",
+        "Producto 100% seedless (del fruto)",
+        "Perfil nutricional similar al aceite de oliva",
+        "Trazabilidad completa desde plantación hasta consumidor",
+        "Modelo de economía circular integral",
+        "Alianza estratégica con productores especializados",
+        "Certificaciones múltiples de sostenibilidad"
+      ],
+      "contacto": {
+        "email_comercial": "comercial@altooleico.com",
+        "telefono": "3102270147",
+        "pais": "Colombia",
+        "region": "Llanos Orientales"
+      }
+    },
+    "beneficios_nutricionales": {
+      "perfil_acidos_grasos": {
+        "acido_oleico": "55-58% (omega-9)",
+        "omega_6": "Contenido reducido comparado con otros aceites vegetales",
+        "grasas_saturadas": "Nivel moderado y balanceado"
+      },
+      "antioxidantes": {
+        "tocoferoles": "Fuerte antioxidante, mejora salud cardiovascular y neuroprotección",
+        "carotenoides": "Mejoran sistema inmune y salud visual",
+        "vitaminas": "Fuente natural de vitaminas A y E"
+      },
+      "estabilidad": {
+        "oxidativa": "Mayor resistencia a la oxidación",
+        "termica": "Soporta altas temperaturas sin degradarse",
+        "vida_util": "Más larga que aceites convencionales",
+        "fritura": "Menos formación de compuestos tóxicos"
+      }
+    },
+    "aplicaciones_industriales": {
+      "fritura_profunda": {
+        "ventajas": "Hasta 30% más de rendimiento, alta resistencia a oxidación",
+        "mercado": "Restaurantes, cadenas de comida rápida, industria alimentaria"
+      },
+      "panificacion": {
+        "productos": "Shortenings, margarinas especializadas",
+        "beneficios": "Libre de trans, mayor estabilidad"
+      },
+      "alimentos_procesados": {
+        "aplicaciones": "Ingrediente para alimentos industriales",
+        "ventajas": "Estabilidad prolongada, perfil saludable"
+      }
+    },
+    "faq": [
+      {
+        "q": "¿Qué significa HOPO?",
+        "a": "High Oleic Palm Oil, aceite de palma alto oleico extraído del fruto"
+      },
+      {
+        "q": "¿Cuál es el producto insignia de DAO para fritura?",
+        "a": "La oleína alto oleico bajo la marca Palmalí, que ofrece hasta 30% más de rendimiento en freidoras"
+      },
+      {
+        "q": "¿Qué diferencia hay entre Nolí y Palmalí?",
+        "a": "Nolí es aceite rojo alto oleico para consumo en frío rico en vitaminas; Palmalí es oleína refinada para fritura intensiva en industria y restaurantes"
+      },
+      {
+        "q": "¿DAO produce aceites de semilla?",
+        "a": "No. DAO produce únicamente aceites del fruto de palma alto oleico, 100% seedless"
+      },
+      {
+        "q": "¿Qué certificaciones tiene DAO?",
+        "a": "RSPO, ISCC, Non-GMO, Kosher, Aceite 100% colombiano de Fedepalma, y está en proceso de certificación B Corp"
+      },
+      {
+        "q": "¿Por qué la oleína alto oleico es más saludable?",
+        "a": "Tiene menos omega-6, más omega-9, antioxidantes naturales, es estable al calor, libre de trans y sin solventes"
+      },
+      {
+        "q": "¿Cuál es la ventaja del aceite alto oleico sobre otros aceites vegetales?",
+        "a": "Mayor estabilidad térmica, perfil similar al aceite de oliva, menor generación de compuestos tóxicos al freír y rico en antioxidantes naturales"
+      },
+      {
+        "q": "¿Qué es la alianza estratégica de DAO?",
+        "a": "Una alianza con Guaicaramo, EvoAgro, Bio D y Sirius para diferenciar el aceite de palma colombiano en mercados premium con trazabilidad completa"
+      }
+    ]
+  }
+}
