@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎤 Fedepalma 2025 Voice Bot
 
-## Getting Started
+Sistema de voz interactivo para el **Congreso Nacional de Cultivadores de Palma de Aceite 2025**.
 
-First, run the development server:
+## ✨ Estado Actual
+
+### ✅ PASO 1.5 - Landing Page y Deploy Inicial (COMPLETADO)
+
+**Implementaciones realizadas:**
+
+🎨 **Landing Page Mejorada**
+- Diseño responsive con información completa del congreso
+- Características del sistema de voz destacadas
+- Información técnica del sector palmero (HOPO, OxG, RSPO)
+- Cards informativos sobre funcionalidades
+
+🔍 **SEO Completo**
+- Meta tags optimizados para Google y redes sociales
+- Open Graph y Twitter Cards configurados
+- Sitemap.xml dinámico generado
+- Robots.txt con directrices de crawling
+- Structured data (JSON-LD) implementado
+- Keywords específicos del sector palmero
+
+⚡ **Optimización de Performance**
+- Preconnect a APIs externas (Deepgram, ElevenLabs, OpenAI)
+- DNS prefetch para recursos críticos
+- Compresión y optimización de imágenes
+- Bundle splitting automático
+- Core Web Vitals optimizados
+
+🚀 **Configuración de Deploy**
+- Vercel.json configurado para región São Paulo
+- Headers de seguridad implementados
+- Variables de entorno estructuradas
+- Script de auditoría de performance
+- Guía completa de despliegue (DEPLOY.md)
+
+📱 **PWA Avanzada**
+- Service worker optimizado
+- Manifest con metadatos completos
+- Iconos temporales (verde Fedepalma)
+- Auto-install prompt mejorado
+- Caching estratégico configurado
+
+## Stack Tecnológico
+
+- **Frontend**: Next.js 15 + React 19 + TypeScript
+- **PWA**: next-pwa con service workers
+- **Audio**: WebRTC + AudioWorklet
+- **STT**: Deepgram Nova-2 (español latinoamericano)
+- **TTS**: Eleven Labs Flash v2.5
+- **Vector DB**: Supabase con pgvector
+- **Embeddings**: OpenAI text-embedding-3-small
+- **Deployment**: Vercel Edge Functions
+
+## Desarrollo
+
+### Prerrequisitos
+
+- Node.js 20.x LTS
+- npm
+
+### Instalación
 
 ```bash
+npm install
+cp .env.example .env.local
+# Configurar las variables de entorno reales
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts Disponibles
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` - Servidor de desarrollo con Turbopack
+- `npm run build` - Build de producción
+- `npm run type-check` - Verificar tipos TypeScript
+- `npm run process-docs` - Procesar JSONs del congreso
+- `npm run generate-embeddings` - Generar embeddings vectoriales
+- `npm run seed-db` - Inicializar base de datos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura del Proyecto
 
-## Learn More
+```
+src/
+├── app/                          # App Router de Next.js
+│   ├── api/                      # API Routes
+│   │   ├── voice/process/        # Pipeline STT→RAG→TTS
+│   │   ├── session/              # Manejo de sesiones
+│   │   ├── knowledge/search/     # Búsqueda vectorial
+│   │   └── qr/                   # Generación/validación QR
+│   ├── voice-bot/[sessionId]/    # Interfaz principal
+│   └── admin/qr/                 # Admin para QRs
+├── components/
+│   ├── voice/                    # Componentes de audio
+│   └── ui/                       # Componentes UI reutilizables
+├── lib/
+│   ├── audio/                    # WebRTC y AudioWorklet
+│   ├── api/                      # Clientes externos
+│   ├── db/                       # Supabase y vectores
+│   └── utils/                    # Utilities generales
+├── hooks/                        # Custom React hooks
+└── types/                        # Definiciones TypeScript
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Variables de Entorno
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ver `.env.example` para la lista completa de variables requeridas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Arquitectura
 
-## Deploy on Vercel
+Sistema voice-to-voice directo sin intermediarios:
+Audio → Deepgram STT → Vector Search → Text Response → Eleven Labs TTS → Audio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Target de latencia**: < 300ms voice-to-voice
+# fedepalma-bot
