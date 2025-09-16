@@ -30,6 +30,16 @@ export default function VoiceRecorder({
     bytesProcessed: 0
   })
 
+  // Estados para chat completion
+  const [lastResponse, setLastResponse] = useState('')
+  const [isGeneratingResponse, setIsGeneratingResponse] = useState(false)
+  const [chatError, setChatError] = useState<string | null>(null)
+  const [conversationHistory, setConversationHistory] = useState<Array<{
+    role: 'user' | 'assistant';
+    content: string;
+    timestamp: number;
+  }>>([]);
+
   // Hook de captura de audio
   const {
     state,
@@ -147,6 +157,9 @@ export default function VoiceRecorder({
         setLastTranscription(result.transcript)
         onTranscription(result.transcript, result.confidence || 0)
         console.log(`[VoiceRecorder] Transcripción exitosa: "${result.transcript}" (${(result.confidence * 100).toFixed(1)}%)`)
+        
+        // Generar respuesta automáticamente después de transcripción exitosa
+        await generateChatResponse(result.transcript)
       } else {
         setSttError(result.error || 'No se pudo transcribir el audio')
       }
@@ -154,6 +167,91 @@ export default function VoiceRecorder({
     } catch (error) {
       console.error('Error procesando audio para transcripción:', error)
       setSttError(`Error STT: ${error}`)
+    }
+  }
+
+  /**
+   * Generar respuesta usando chat completion
+   */
+  const generateChatResponse = async (userMessage: string) => {
+    if (!userMessage.trim()) return
+
+    try {
+      setIsGeneratingResponse(true)
+      setChatError(null)
+      console.log(`[VoiceRecorder] Generando respuesta para: "${userMessage.substring(0, 50)}..."`)
+
+      // Buscar contexto relevante primero
+      const searchResponse = await fetch('/api/search/documents', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: userMessage,
+          limit: 3,
+          threshold: 0.2 // Umbral bajo para mejor recall con documentos reales
+        })
+      })
+
+      let context = ''
+      if (searchResponse.ok) {
+        const searchResult = await searchResponse.json()
+        if (searchResult.success && searchResult.results?.length > 0) {
+          context = searchResult.results
+            .map((doc: { title: string; content: string }) => `${doc.title}: ${doc.content}`)
+            .join('\n\n')
+          console.log(`[VoiceRecorder] Contexto encontrado: ${searchResult.results.length} documentos`)
+          console.log(`[VoiceRecorder] Contexto: ${context.substring(0, 200)}...`)
+        } else {
+          console.log(`[VoiceRecorder] No se encontró contexto relevante`)
+        }
+      } else {
+        console.log(`[VoiceRecorder] Error en búsqueda: ${searchResponse.status}`)
+      }
+
+      // Generar respuesta con contexto
+      const chatResponse = await fetch('/api/chat/complete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessage,
+          context: context,
+          conversationHistory: conversationHistory
+        })
+      })
+
+      if (!chatResponse.ok) {
+        throw new Error(`HTTP error! status: ${chatResponse.status}`)
+      }
+
+      const result = await chatResponse.json()
+      
+      console.log('[VoiceRecorder] Respuesta de chat:', result)
+
+      if (result.success && result.response) {
+        setLastResponse(result.response)
+        
+        // Actualizar historial de conversación
+        const timestamp = Date.now()
+        setConversationHistory(prev => [
+          ...prev,
+          { role: 'user', content: userMessage, timestamp },
+          { role: 'assistant', content: result.response, timestamp: timestamp + 1 }
+        ])
+
+        console.log(`[VoiceRecorder] Respuesta generada exitosamente: "${result.response.substring(0, 100)}..."`)
+      } else {
+        setChatError(result.error || 'No se pudo generar respuesta')
+      }
+
+    } catch (error) {
+      console.error('Error generando respuesta de chat:', error)
+      setChatError(`Error generando respuesta: ${error}`)
+    } finally {
+      setIsGeneratingResponse(false)
     }
   }
 
@@ -166,7 +264,7 @@ export default function VoiceRecorder({
   }
 
   const buttonState = getButtonState()
-  const hasError = audioError || sttError
+  const hasError = audioError || sttError || chatError
 
   return (
     <div className={`voice-recorder ${className}`}>
@@ -295,6 +393,24 @@ export default function VoiceRecorder({
         </div>
       )}
 
+      {/* Indicador de generación de respuesta */}
+      {isGeneratingResponse && (
+        <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-2"></div>
+            <span className="text-sm text-blue-700">Generando respuesta...</span>
+          </div>
+        </div>
+      )}
+
+      {/* Respuesta del chat */}
+      {lastResponse && !isGeneratingResponse && (
+        <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <h4 className="text-sm font-medium text-blue-800 mb-1">Respuesta del Grupo Guaicaramo:</h4>
+          <p className="text-sm text-blue-700">{lastResponse}</p>
+        </div>
+      )}
+
       {/* Configuración de audio */}
       <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
         <h4 className="text-sm font-medium text-blue-800 mb-2">Configuración</h4>
@@ -319,7 +435,7 @@ export default function VoiceRecorder({
         <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
           <h4 className="text-sm font-medium text-red-800 mb-1">Error:</h4>
           <p className="text-sm text-red-700">
-            {audioError || sttError}
+            {audioError || sttError || chatError}
           </p>
         </div>
       )}

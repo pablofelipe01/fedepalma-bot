@@ -146,10 +146,11 @@ export const PWA_CONFIG = {
   orientation: 'portrait-primary',
 } as const;
 
-// Configuración del congreso
-export const CONGRESS_INFO = {
-  name: 'Congreso Nacional de Cultivadores de Palma de Aceite 2025',
-  short_name: 'Fedepalma 2025',
+// Configuración del grupo empresarial
+export const COMPANY_INFO = {
+  name: 'Grupo Empresarial Guaicaramo',
+  short_name: 'Guaicaramo',
   year: 2025,
-  organization: 'Fedepalma',
+  organization: 'Grupo Empresarial Guaicaramo',
+  companies: ['Guaicaramo', 'Fundación Guaicaramo', 'Sirius Regenerative'],
 } as const;

@@ -2,7 +2,6 @@
 
 import PWAInstallPrompt from '@/components/ui/PWAInstallPrompt'
 import VoiceRecorder from '@/components/voice/VoiceRecorder'
-import { CONGRESS_INFO } from '@/lib/utils/constants'
 import { useState } from 'react'
 
 export default function Home() {
@@ -30,18 +29,18 @@ export default function Home() {
         {/* Header */}
         <header className="text-center">
           <div className="mx-auto mb-6 h-20 w-20 sm:h-24 sm:w-24 rounded-full bg-green-700 flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-lg sm:text-xl">F25</span>
+            <span className="text-white font-bold text-lg sm:text-xl">G25</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-900 mb-4">
-            {CONGRESS_INFO.short_name}
+            Bot Inteligente Guaicaramo
           </h1>
           <h2 className="text-xl sm:text-2xl text-green-700 mb-4">
-            Voice Bot Inteligente
+            Asistente de Voz del Sector Palmero
           </h2>
           <p className="text-green-600 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
-            Sistema de voz interactivo para el {CONGRESS_INFO.name}.
-            Consulta información sobre charlas, empresas expositoras, ponentes y todo lo relacionado 
-            con el sector palmero colombiano.
+            Sistema de voz inteligente del Grupo Empresarial Guaicaramo.
+            Consulta información sobre el sector palmero colombiano, empresas, tecnologías 
+            y sostenibilidad en palmicultura.
           </p>
         </header>
 
@@ -181,7 +180,7 @@ export default function Home() {
           </div>
           <div className="bg-white rounded-lg shadow-md p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-3">
-              Sector Palmero {CONGRESS_INFO.year}
+              Sector Palmero 2025
             </h3>
             <div className="space-y-2 text-sm text-gray-600">
               <div>• Aceite alto oleico (HOPO)</div>
@@ -195,8 +194,8 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-12 pt-8 border-t border-green-200 text-center">
           <div className="text-green-600 space-y-2">
-            <p className="font-medium">{CONGRESS_INFO.name}</p>
-            <p className="text-sm">Organizado por {CONGRESS_INFO.organization}</p>
+            <p className="font-medium">Bot Inteligente del Sector Palmero</p>
+            <p className="text-sm">Desarrollado por Grupo Empresarial Guaicaramo</p>
             <p className="text-xs text-gray-500 mt-4">
               Powered by Next.js 15 • Vercel • Supabase
             </p>

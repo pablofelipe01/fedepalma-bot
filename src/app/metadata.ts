@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
-import { CONGRESS_INFO } from '@/lib/utils/constants';
 
 export const metadata: Metadata = {
   title: {
-    default: `${CONGRESS_INFO.short_name} - Voice Bot Inteligente`,
-    template: `%s | ${CONGRESS_INFO.short_name}`,
+    default: `Bot de Voz Guaicaramo - Sector Palmero`,
+    template: `%s | Bot Guaicaramo`,
   },
-  description: `Sistema de voz interactivo para el ${CONGRESS_INFO.name}. Consulta información sobre charlas, empresas expositoras, ponentes y todo lo relacionado con el sector palmero colombiano.`,
+  description: `Sistema de voz inteligente del Grupo Empresarial Guaicaramo. Consulta información sobre el sector palmero colombiano, empresas, tecnologías y sostenibilidad en palmicultura.`,
   keywords: [
-    'Fedepalma',
-    'Congreso palma de aceite',
+    'Guaicaramo',
+    'Grupo Guaicaramo',
+    'Fundación Guaicaramo',
+    'Sirius Regenerative',
     'Sector palmero',
     'Voice bot',
     'Asistente de voz',
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     'HOPO alto oleico',
     'Variedades OxG',
     'RSPO sostenibilidad',
+    'Agricultura regenerativa',
     'Innovación palmera',
     'Cultivadores palma',
     'Industria aceitera',
@@ -24,9 +26,9 @@ export const metadata: Metadata = {
     'Tecnología agrícola',
     'Agricultura sostenible',
   ],
-  authors: [{ name: 'Fedepalma' }],
-  creator: 'Fedepalma',
-  publisher: CONGRESS_INFO.organization,
+  authors: [{ name: 'Grupo Empresarial Guaicaramo' }],
+  creator: 'Grupo Empresarial Guaicaramo',
+  publisher: 'Grupo Empresarial Guaicaramo',
   formatDetection: {
     email: false,
     address: false,
@@ -36,10 +38,10 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_APP_URL || 'https://bot-fedepalma2025.vercel.app'
   ),
   openGraph: {
-    title: `${CONGRESS_INFO.short_name} - Voice Bot Inteligente`,
-    description: `Sistema de voz interactivo para el ${CONGRESS_INFO.name}. Tecnología de vanguardia para consultar información del congreso más importante del sector palmero colombiano.`,
+    title: `Bot Inteligente Guaicaramo - Sector Palmero`,
+    description: `Sistema de voz inteligente del Grupo Empresarial Guaicaramo. Tecnología de vanguardia para consultar información del sector palmero colombiano con IA.`,
     url: '/',
-    siteName: CONGRESS_INFO.short_name,
+    siteName: 'Bot Guaicaramo',
     locale: 'es_CO',
     type: 'website',
     images: [
@@ -47,14 +49,14 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: `${CONGRESS_INFO.short_name} Voice Bot`,
+        alt: `Bot Inteligente Guaicaramo - Sector Palmero`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${CONGRESS_INFO.short_name} - Voice Bot Inteligente`,
-    description: `Sistema de voz interactivo para el ${CONGRESS_INFO.name}. Consulta información sobre charlas, empresas expositoras y ponentes con tecnología de IA.`,
+    title: `Bot Inteligente Guaicaramo - Sector Palmero`,
+    description: `Sistema de voz inteligente del Grupo Empresarial Guaicaramo. Consulta información sobre empresas, tecnologías y sostenibilidad palmera con IA.`,
     images: ['/images/twitter-image.png'],
   },
   robots: {
@@ -80,7 +82,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   category: 'technology',
-  classification: 'Voice Assistant, Agricultural Technology, Congress Assistant',
+  classification: 'Voice Assistant, Agricultural Technology, Palm Oil Industry, Regenerative Agriculture',
   other: {
     'mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-capable': 'yes',
