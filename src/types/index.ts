@@ -1,9 +1,47 @@
 // ===== TIPOS DE AUDIO Y VOICE =====
 
 export interface AudioChunk {
-  data: ArrayBuffer;
+  data: Float32Array | number[];
   timestamp: number;
-  sequence: number;
+  sampleRate: number;
+  channels: number;
+}
+
+export interface AudioCaptureConfig {
+  sampleRate: number;
+  channels: number;
+  bitsPerSample: number;
+  chunkDuration: number; // in milliseconds
+  enableVAD: boolean; // Voice Activity Detection
+  vadThreshold: number;
+  vadSilenceDuration: number; // milliseconds of silence before stopping
+}
+
+export interface AudioFormat {
+  mimeType: string;
+  extension: string;
+  quality: 'low' | 'medium' | 'high' | 'highest';
+  compression: 'none' | 'lossy' | 'lossless';
+  browserSupport: string[];
+}
+
+export type AudioCaptureState = 'idle' | 'initializing' | 'recording' | 'processing' | 'error';
+
+export interface AudioCaptureHook {
+  // State
+  state: AudioCaptureState;
+  error: string | null;
+  audioLevel: number;
+  isVoiceDetected: boolean;
+  
+  // Actions
+  startRecording: (onAudioChunk?: (chunk: AudioChunk) => void) => Promise<boolean>;
+  stopRecording: () => Promise<Blob | null>;
+  cleanup: () => void;
+  checkMicrophoneAvailability: () => Promise<boolean>;
+  
+  // Config
+  config: AudioCaptureConfig;
 }
 
 export interface VoiceState {

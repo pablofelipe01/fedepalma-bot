@@ -1,7 +1,29 @@
-import PWAInstallPrompt from '@/components/ui/PWAInstallPrompt';
-import { CONGRESS_INFO } from '@/lib/utils/constants';
+'use client'
+
+import PWAInstallPrompt from '@/components/ui/PWAInstallPrompt'
+import VoiceRecorder from '@/components/voice/VoiceRecorder'
+import { CONGRESS_INFO } from '@/lib/utils/constants'
+import { useState } from 'react'
 
 export default function Home() {
+  const [transcriptions, setTranscriptions] = useState<Array<{
+    text: string
+    confidence: number
+    timestamp: Date
+  }>>([])
+
+  const handleTranscription = (transcript: string, confidence: number) => {
+    setTranscriptions(prev => [...prev, {
+      text: transcript,
+      confidence,
+      timestamp: new Date()
+    }])
+  }
+
+  const handleVoiceError = (error: string) => {
+    console.error('Voice error:', error)
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100">
       <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
@@ -63,6 +85,45 @@ export default function Home() {
                   Instálalo como app nativa en tu dispositivo
                   para acceso rápido y offline
                 </p>
+              </div>
+            </div>
+
+            {/* Voice Bot Testing Section */}
+            <div className="border-t border-gray-200 pt-8 mb-8">
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                🧪 Pruebas del Sistema de Voz
+              </h4>
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <p className="text-sm text-blue-700 mb-4">
+                  Prueba el sistema de captura de audio y transcripción de voz.
+                  Los chunks de audio se procesan en tiempo real con Deepgram STT.
+                </p>
+                
+                <VoiceRecorder
+                  onTranscription={handleTranscription}
+                  onError={handleVoiceError}
+                  className="mb-4"
+                />
+
+                {/* Historial de transcripciones */}
+                {transcriptions.length > 0 && (
+                  <div className="mt-6">
+                    <h5 className="text-sm font-semibold text-blue-800 mb-3">
+                      Historial de Transcripciones:
+                    </h5>
+                    <div className="space-y-2 max-h-60 overflow-y-auto">
+                      {transcriptions.slice(-5).reverse().map((t, index) => (
+                        <div key={index} className="bg-white p-3 rounded-lg border border-blue-200">
+                          <p className="text-sm text-gray-800 mb-1">&ldquo;{t.text}&rdquo;</p>
+                          <div className="flex justify-between text-xs text-gray-500">
+                            <span>Confianza: {(t.confidence * 100).toFixed(1)}%</span>
+                            <span>{t.timestamp.toLocaleTimeString()}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
