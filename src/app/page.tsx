@@ -94,14 +94,15 @@ export default function Home() {
               </h4>
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
                 <p className="text-sm text-blue-700 mb-4">
-                  Prueba el sistema de captura de audio y transcripción de voz.
-                  Los chunks de audio se procesan en tiempo real con Deepgram STT.
+                  🎯 <strong>Modo Conversación Continua:</strong> Haz un click para iniciar y mantén una conversación fluida en tiempo real.
+                  El sistema detecta automáticamente cuando hablas y cuando terminas.
                 </p>
                 
                 <VoiceRecorder
                   onTranscription={handleTranscription}
                   onError={handleVoiceError}
                   className="mb-4"
+                  conversationMode={true}
                 />
 
                 {/* Historial de transcripciones */}

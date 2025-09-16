@@ -15,6 +15,10 @@ export interface AudioCaptureConfig {
   enableVAD: boolean; // Voice Activity Detection
   vadThreshold: number;
   vadSilenceDuration: number; // milliseconds of silence before stopping
+  continuousMode?: boolean; // Para conversación continua
+  onSilenceDetected?: (audioBlob: Blob) => void; // Callback cuando se detecta silencio
+  onVoiceStart?: () => void; // Callback cuando inicia la voz
+  onVoiceEnd?: () => void; // Callback cuando termina la voz
 }
 
 export interface AudioFormat {
