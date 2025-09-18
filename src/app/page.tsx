@@ -1,211 +1,393 @@
 'use client'
 
 import PWAInstallPrompt from '@/components/ui/PWAInstallPrompt'
-import VoiceRecorder from '@/components/voice/VoiceRecorder'
-import { useState } from 'react'
+import Image from 'next/image'
+import { useState, useRef, useEffect } from 'react'
+
+interface Message {
+  id: string
+  text: string
+  isUser: boolean
+  timestamp: Date
+}
 
 export default function Home() {
-  const [transcriptions, setTranscriptions] = useState<Array<{
-    text: string
-    confidence: number
-    timestamp: Date
-  }>>([])
+  const [messages, setMessages] = useState<Message[]>([])
+  const [inputText, setInputText] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  const handleTranscription = (transcript: string, confidence: number) => {
-    setTranscriptions(prev => [...prev, {
-      text: transcript,
-      confidence,
-      timestamp: new Date()
-    }])
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const handleVoiceError = (error: string) => {
-    console.error('Voice error:', error)
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages])
+
+  const handleSendMessage = async () => {
+    if (!inputText.trim() || isLoading) return
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: inputText.trim(),
+      isUser: true,
+      timestamp: new Date()
+    }
+
+    setMessages(prev => [...prev, userMessage])
+    setInputText('')
+    setIsLoading(true)
+
+    try {
+      const response = await fetch('/api/chat/complete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessage.text,
+          history: messages.slice(-4).map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }))
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Error en la respuesta del servidor')
+      }
+
+      const data = await response.json()
+      
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: data.response || 'No se pudo generar una respuesta',
+        isUser: false,
+        timestamp: new Date()
+      }
+
+      setMessages(prev => [...prev, botMessage])
+    } catch (error) {
+      console.error('Error al enviar mensaje:', error)
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: 'Lo siento, hubo un error al procesar tu consulta. Por favor intenta de nuevo.',
+        isUser: false,
+        timestamp: new Date()
+      }
+      setMessages(prev => [...prev, errorMessage])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      handleSendMessage()
+    }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100">
-      <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
-        {/* Header */}
-        <header className="text-center">
-          <div className="mx-auto mb-6 h-20 w-20 sm:h-24 sm:w-24 rounded-full bg-green-700 flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-lg sm:text-xl">G25</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-900 mb-4">
-            Bot Inteligente Guaicaramo
-          </h1>
-          <h2 className="text-xl sm:text-2xl text-green-700 mb-4">
-            Asistente de Voz del Sector Palmero
-          </h2>
-          <p className="text-green-600 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
-            Sistema de voz inteligente del Grupo Empresarial Guaicaramo.
-            Consulta información sobre el sector palmero colombiano, empresas, tecnologías 
-            y sostenibilidad en palmicultura.
-          </p>
-        </header>
-
-        {/* Status Card */}
-        <div className="mt-8 sm:mt-12 bg-white rounded-xl shadow-lg p-6 sm:p-8">
-          <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-yellow-100 text-yellow-800 mb-6">
-              <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2 animate-pulse"></div>
-              <span className="font-medium">En desarrollo</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
-              Sistema en Construcción
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Estamos preparando el sistema de voz inteligente para el congreso.
-              El bot estará disponible próximamente con tecnología de última generación.
-            </p>
-            
-            {/* Características principales */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              <div className="p-6 bg-green-50 rounded-xl border border-green-100">
-                <div className="text-4xl mb-3">🎤</div>
-                <div className="text-green-700 font-semibold mb-2">Voz Natural</div>
-                <p className="text-sm text-gray-600">
-                  Conversación fluida en español colombiano con reconocimiento 
-                  de términos técnicos del sector palmero
-                </p>
-              </div>
-              <div className="p-6 bg-green-50 rounded-xl border border-green-100">
-                <div className="text-4xl mb-3">🧠</div>
-                <div className="text-green-700 font-semibold mb-2">IA Avanzada</div>
-                <p className="text-sm text-gray-600">
-                  Búsqueda inteligente en la base de conocimientos del congreso
-                  con respuestas precisas y contextuales
-                </p>
-              </div>
-              <div className="p-6 bg-green-50 rounded-xl border border-green-100 sm:col-span-2 lg:col-span-1">
-                <div className="text-4xl mb-3">📱</div>
-                <div className="text-green-700 font-semibold mb-2">PWA Instalable</div>
-                <p className="text-sm text-gray-600">
-                  Instálalo como app nativa en tu dispositivo
-                  para acceso rápido y offline
-                </p>
-              </div>
-            </div>
-
-            {/* Voice Bot Testing Section */}
-            <div className="border-t border-gray-200 pt-8 mb-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                🧪 Pruebas del Sistema de Voz
-              </h4>
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                <p className="text-sm text-blue-700 mb-4">
-                  🎯 <strong>Modo Conversación Continua:</strong> Haz un click para iniciar y mantén una conversación fluida en tiempo real.
-                  El sistema detecta automáticamente cuando hablas y cuando terminas.
-                </p>
-                
-                <VoiceRecorder
-                  onTranscription={handleTranscription}
-                  onError={handleVoiceError}
-                  className="mb-4"
-                  conversationMode={true}
-                />
-
-                {/* Historial de transcripciones */}
-                {transcriptions.length > 0 && (
-                  <div className="mt-6">
-                    <h5 className="text-sm font-semibold text-blue-800 mb-3">
-                      Historial de Transcripciones:
-                    </h5>
-                    <div className="space-y-2 max-h-60 overflow-y-auto">
-                      {transcriptions.slice(-5).reverse().map((t, index) => (
-                        <div key={index} className="bg-white p-3 rounded-lg border border-blue-200">
-                          <p className="text-sm text-gray-800 mb-1">&ldquo;{t.text}&rdquo;</p>
-                          <div className="flex justify-between text-xs text-gray-500">
-                            <span>Confianza: {(t.confidence * 100).toFixed(1)}%</span>
-                            <span>{t.timestamp.toLocaleTimeString()}</span>
-                          </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#EFF5D2] to-white">
+      {/* Main Content */}
+      <main className="max-w-6xl mx-auto px-4 py-4 lg:py-8">
+        <div className="grid lg:grid-cols-4 gap-4 lg:gap-8">
+          {/* Chat Section */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-2xl lg:rounded-3xl shadow-2xl border border-[#C6D870]/30 overflow-hidden">
+              {/* Chat Messages */}
+              <div className="h-[500px] lg:h-[600px] overflow-y-auto p-4 lg:p-6 space-y-4 lg:space-y-6 bg-gradient-to-b from-white via-[#EFF5D2]/10 to-[#EFF5D2]/30">
+                {messages.length === 0 && (
+                  <div className="text-center py-12 lg:py-20">
+                    {/* Unified Logos del Grupo Guaicaramo */}
+                    <div className="mb-8 lg:mb-10">
+                      {/* Desktop: row of 4 logos */}
+                      <div className="hidden lg:flex justify-center items-center space-x-8 mb-6">
+                        <Image 
+                          src="/logo-Guaicaramo.png" 
+                          alt="Grupo Guaicaramo" 
+                          width={100}
+                          height={100}
+                          className="h-24 w-auto"
+                          priority
+                        />
+                        <Image 
+                          src="/Logo-DAO.png" 
+                          alt="DAO" 
+                          width={100}
+                          height={100}
+                          className="h-24 w-auto"
+                          priority
+                        />
+                        <Image 
+                          src="/Logo-Fundacion.png" 
+                          alt="Fundación" 
+                          width={100}
+                          height={100}
+                          className="h-24 w-auto"
+                          priority
+                        />
+                        <Image 
+                          src="/Logo-Sirius.png" 
+                          alt="Sirius" 
+                          width={100}
+                          height={100}
+                          className="h-24 w-auto"
+                          priority
+                        />
+                      </div>
+                      {/* Mobile: 2x2 grid of 4 logos */}
+                      <div className="lg:hidden grid grid-cols-2 gap-4 max-w-xs mx-auto mb-6">
+                        <div className="flex justify-center">
+                          <Image 
+                            src="/logo-Guaicaramo.png" 
+                            alt="Grupo Guaicaramo" 
+                            width={80}
+                            height={80}
+                            className="h-20 w-auto"
+                            priority
+                          />
                         </div>
-                      ))}
+                        <div className="flex justify-center">
+                          <Image 
+                            src="/Logo-DAO.png" 
+                            alt="DAO" 
+                            width={80}
+                            height={80}
+                            className="h-20 w-auto"
+                            priority
+                          />
+                        </div>
+                        <div className="flex justify-center">
+                          <Image 
+                            src="/Logo-Fundacion.png" 
+                            alt="Fundación" 
+                            width={80}
+                            height={80}
+                            className="h-20 w-auto"
+                            priority
+                          />
+                        </div>
+                        <div className="flex justify-center">
+                          <Image 
+                            src="/Logo-Sirius.png" 
+                            alt="Sirius" 
+                            width={80}
+                            height={80}
+                            className="h-20 w-auto"
+                            priority
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <h1 className="text-3xl lg:text-4xl font-bold text-[#556B2F] mb-4 lg:mb-6 font-display">
+                      Asistente Grupo Guaicaramo
+                    </h1>
+                    <h2 className="text-xl lg:text-2xl font-semibold text-[#8FA31E] mb-6 lg:mb-8">
+                      ¡Bienvenido a nuestro ecosistema empresarial!
+                    </h2>
+                    <p className="text-[#8FA31E] text-lg lg:text-xl max-w-lg mx-auto mb-8 lg:mb-10 leading-relaxed px-4">
+                      Pregunta sobre nuestras empresas DAO, Fundación, Sirius, tecnologías, sostenibilidad o cualquier tema del sector palmicultor.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 max-w-2xl mx-auto px-4">
+                      <button
+                        onClick={() => setInputText('¿Qué es el Grupo Guaicaramo y cuáles son sus empresas?')}
+                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      >
+                        🏢 ¿Qué es Guaicaramo?
+                      </button>
+                      <button
+                        onClick={() => setInputText('Cuéntame sobre DAO y sus servicios')}
+                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      >
+                        🔧 Servicios DAO
+                      </button>
+                      <button
+                        onClick={() => setInputText('¿Qué hace la Fundación Guaicaramo?')}
+                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      >
+                        🌱 Fundación
+                      </button>
+                      <button
+                        onClick={() => setInputText('Explícame sobre Sirius y sus tecnologías')}
+                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      >
+                        🚀 Sirius Tech
+                      </button>
                     </div>
                   </div>
                 )}
+
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+                  >
+                    <div
+                      className={`max-w-[90%] lg:max-w-[85%] rounded-xl lg:rounded-2xl px-4 lg:px-6 py-3 lg:py-4 shadow-lg ${
+                        message.isUser
+                          ? 'bg-gradient-to-r from-[#8FA31E] to-[#556B2F] text-white'
+                          : 'bg-white border-2 border-[#C6D870] text-[#556B2F]'
+                      }`}
+                    >
+                      <p className="whitespace-pre-wrap leading-relaxed text-base lg:text-lg">{message.text}</p>
+                      <div className={`text-xs lg:text-sm mt-2 lg:mt-3 ${
+                        message.isUser ? 'text-[#C6D870]' : 'text-gray-500'
+                      }`}>
+                        {message.timestamp.toLocaleTimeString('es-CO', { 
+                          hour: '2-digit', 
+                          minute: '2-digit' 
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="bg-white border-2 border-[#C6D870] rounded-2xl px-6 py-4 shadow-lg">
+                      <div className="flex items-center space-x-3">
+                        <div className="flex space-x-2">
+                          <div className="w-3 h-3 bg-[#8FA31E] rounded-full animate-bounce"></div>
+                          <div className="w-3 h-3 bg-[#C6D870] rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></div>
+                          <div className="w-3 h-3 bg-[#8FA31E] rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+                        </div>
+                        <span className="text-[#556B2F] font-medium">Escribiendo respuesta...</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input Area */}
+              <div className="border-t-2 border-[#C6D870]/30 bg-gradient-to-r from-[#EFF5D2]/50 to-white p-4 lg:p-6">
+                <div className="flex space-x-2 lg:space-x-4">
+                  <input
+                    type="text"
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Pregunta sobre Grupo Guaicaramo, DAO, Fundación, Sirius..."
+                    className="flex-1 px-4 lg:px-6 py-3 lg:py-4 border-2 border-[#C6D870] rounded-lg lg:rounded-xl focus:outline-none focus:border-[#8FA31E] focus:ring-4 focus:ring-[#8FA31E]/20 transition-all duration-200 bg-white text-[#556B2F] placeholder-gray-400 text-base lg:text-lg shadow-inner"
+                    disabled={isLoading}
+                  />
+                  <button
+                    onClick={handleSendMessage}
+                    disabled={!inputText.trim() || isLoading}
+                    className="bg-gradient-to-r from-[#8FA31E] to-[#556B2F] hover:from-[#556B2F] hover:to-[#8FA31E] disabled:bg-gray-300 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none"
+                  >
+                    {isLoading ? (
+                      <div className="w-5 lg:w-6 h-5 lg:h-6 border-3 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      'Enviar'
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="hidden lg:block lg:col-span-1 space-y-6">
+            {/* Info Card */}
+            <div className="bg-white rounded-2xl shadow-xl border border-[#C6D870]/30 p-6">
+              <h3 className="text-xl font-bold text-[#556B2F] mb-4 flex items-center">
+                <span className="text-2xl mr-3">🧠</span>
+                IA Especializada
+              </h3>
+              <div className="space-y-3 text-sm text-[#8FA31E]">
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span>Conocimiento de Grupo Guaicaramo</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span>Base de datos actualizada</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span>Respuestas contextuales precisas</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span>Información técnica especializada</span>
+                </div>
               </div>
             </div>
 
-            {/* Información del congreso */}
-            <div className="border-t border-gray-200 pt-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                ¿Qué podrás consultar?
-              </h4>
-              <div className="grid sm:grid-cols-2 gap-4 text-left">
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    Agenda completa de conferencias
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    Información de empresas expositoras
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    Perfiles de ponentes destacados
-                  </div>
+            {/* Empresas Info Card */}
+            <div className="bg-white rounded-2xl shadow-xl border border-[#C6D870]/30 p-6">
+              <h3 className="text-xl font-bold text-[#556B2F] mb-4 flex items-center">
+                <span className="text-2xl mr-3">�</span>
+                Nuestras Empresas
+              </h3>
+              <div className="space-y-3 text-sm text-[#8FA31E]">
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span><b>Guaicaramo</b> - Agroindustria</span>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    Detalles técnicos del sector
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    Ubicaciones y horarios
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    Innovaciones en palma de aceite
-                  </div>
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span>DAO - Desarrollo Agrícola</span>
                 </div>
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span>Fundación Guaicaramo</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-[#C6D870] mr-2">•</span>
+                  <span>Sirius - Tecnología</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Card */}
+            <div className="bg-gradient-to-br from-[#8FA31E] to-[#556B2F] rounded-2xl shadow-xl p-6 text-white">
+              <h3 className="text-xl font-bold mb-4 flex items-center">
+                <span className="text-2xl mr-3">📞</span>
+                Contacto
+              </h3>
+              <div className="space-y-2 text-sm text-[#C6D870]">
+                <div>📧 info@fedepalma.org</div>
+                <div>🌐 www.fedepalma.org</div>
+                <div>📱 +57 (1) 313-8600</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Tecnología */}
-        <div className="mt-8 grid sm:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
-              Tecnología de Vanguardia
+        {/* Mobile Info Cards */}
+        <div className="lg:hidden mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl shadow-lg border border-[#C6D870]/30 p-4">
+            <h3 className="text-lg font-bold text-[#556B2F] mb-3 flex items-center">
+              <span className="text-xl mr-2">🧠</span>
+              IA Especializada
             </h3>
-            <div className="space-y-2 text-sm text-gray-600">
-              <div>• Speech-to-Text con Deepgram Nova-2</div>
-              <div>• Text-to-Speech con ElevenLabs Flash</div>
-              <div>• Búsqueda vectorial con OpenAI</div>
-              <div>• Latencia objetivo &lt; 300ms</div>
+            <div className="space-y-2 text-sm text-[#8FA31E]">
+              <div>• Conocimiento de Grupo Guaicaramo</div>
+              <div>• Respuestas contextuales precisas</div>
+              <div>• Información técnica especializada</div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
-              Sector Palmero 2025
+          <div className="bg-white rounded-xl shadow-lg border border-[#C6D870]/30 p-4">
+            <h3 className="text-lg font-bold text-[#556B2F] mb-3 flex items-center">
+              <span className="text-xl mr-2">�</span>
+              Nuestras Empresas
             </h3>
-            <div className="space-y-2 text-sm text-gray-600">
-              <div>• Aceite alto oleico (HOPO)</div>
-              <div>• Variedades OxG y Guaicaramo</div>
-              <div>• Sostenibilidad y RSPO</div>
-              <div>• Innovación tecnológica</div>
+            <div className="space-y-2 text-sm text-[#8FA31E]">
+              <div>• <b>Guaicaramo</b> - Agroindustria</div>
+              <div>• DAO - Desarrollo Agrícola</div>
+              <div>• Fundación Guaicaramo</div>
+              <div>• Sirius - Tecnología</div>
             </div>
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="mt-12 pt-8 border-t border-green-200 text-center">
-          <div className="text-green-600 space-y-2">
-            <p className="font-medium">Bot Inteligente del Sector Palmero</p>
-            <p className="text-sm">Desarrollado por Grupo Empresarial Guaicaramo</p>
-            <p className="text-xs text-gray-500 mt-4">
-              Powered by Next.js 15 • Vercel • Supabase
-            </p>
-          </div>
-        </footer>
-      </div>
+        {/* Footer removed for minimalist design */}
+      </main>
 
-      {/* PWA Install Prompt */}
       <PWAInstallPrompt />
     </div>
-  );
+  )
 }

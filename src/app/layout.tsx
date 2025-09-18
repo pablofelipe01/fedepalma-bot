@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Poppins, Roboto } from 'next/font/google';
 import { metadata as siteMetadata } from './metadata';
 import { PWA_CONFIG } from '@/lib/utils/constants';
 import './globals.css';
@@ -7,6 +7,18 @@ import './globals.css';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+});
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-roboto',
 });
 
 export const metadata: Metadata = siteMetadata;
@@ -78,7 +90,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${poppins.variable} ${roboto.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

@@ -2,18 +2,19 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: `Bot de Voz Guaicaramo - Sector Palmero`,
-    template: `%s | Bot Guaicaramo`,
+    default: `Asistente Guaicaramo - Sector Palmero`,
+    template: `%s | Asistente Guaicaramo`,
   },
-  description: `Sistema de voz inteligente del Grupo Empresarial Guaicaramo. Consulta información sobre el sector palmero colombiano, empresas, tecnologías y sostenibilidad en palmicultura.`,
+  description: `Asistente inteligente del Grupo Empresarial Guaicaramo. Consulta información sobre nuestras empresas DAO, Fundación, Sirius y el sector palmero colombiano.`,
   keywords: [
     'Guaicaramo',
     'Grupo Guaicaramo',
+    'DAO',
     'Fundación Guaicaramo',
-    'Sirius Regenerative',
+    'Sirius',
     'Sector palmero',
-    'Voice bot',
-    'Asistente de voz',
+    'Asistente inteligente',
+    'Chatbot',
     'Palma de aceite Colombia',
     'HOPO alto oleico',
     'Variedades OxG',

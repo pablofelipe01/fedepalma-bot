@@ -1,9 +1,20 @@
 /**
  * API endpoint para transcripción de voz usando Deepgram
- * Optimizado para el sector palmero con keywords específicos
+ * DESHABILITADO - Sistema simplificado a solo texto
  */
 
 import { NextRequest, NextResponse } from 'next/server'
+
+// Endpoint deshabilitado para simplificar el sistema
+export async function POST(request: NextRequest) {
+  return NextResponse.json({
+    success: false,
+    error: 'Sistema de voz deshabilitado. Usa el chat de texto.'
+  }, { status: 501 })
+}
+
+/*
+// CÓDIGO ORIGINAL COMENTADO - Sistema de voz completo
 import { createClient } from '@deepgram/sdk'
 
 interface TranscriptionRequest {
@@ -34,7 +45,7 @@ interface TranscriptionResponse {
   }
 }
 
-export async function POST(request: NextRequest): Promise<NextResponse<TranscriptionResponse>> {
+export async function POST_ORIGINAL(request: NextRequest): Promise<NextResponse<TranscriptionResponse>> {
   const startTime = Date.now()
 
   try {
@@ -157,7 +168,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Transcrip
     }, { status: 500 })
   }
 }
-
+*/
 // Método GET para health check
 export async function GET(): Promise<NextResponse> {
   const apiKey = process.env.DEEPGRAM_API_KEY
