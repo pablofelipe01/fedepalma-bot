@@ -29,18 +29,26 @@ async function generateEmbedding(text: string): Promise<number[]> {
 }
 
 // Función para buscar documentos por similitud vectorial
-async function searchDocuments(queryEmbedding: number[], threshold: number = 0.3, limit: number = 8): Promise<Document[]> {
+async function searchDocuments(queryEmbedding: number[], threshold: number = 0.1, limit: number = 8): Promise<Document[]> {
+  console.log(`🔍 Llamando search_documents con threshold: ${threshold}, limit: ${limit}`)
+  console.log(`📐 Dimensiones del embedding: ${queryEmbedding.length}`)
+  
   const { data, error } = await supabase.rpc('search_documents', {
-    query_embedding: queryEmbedding,
+    query_embedding: `[${queryEmbedding.join(',')}]`,
     similarity_threshold: threshold,
     match_count: limit
   })
 
   if (error) {
-    console.error('Error en búsqueda vectorial:', error)
+    console.error('❌ Error en búsqueda vectorial:', error)
     return []
   }
 
+  console.log(`✅ Búsqueda vectorial retornó ${data?.length || 0} documentos`)
+  if (data && data.length > 0) {
+    console.log(`📊 Primer resultado - similitud: ${data[0].similarity}, título: ${data[0].title?.substring(0, 50)}`)
+  }
+  
   return data || []
 }
 
