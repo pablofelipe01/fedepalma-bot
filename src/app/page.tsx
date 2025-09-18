@@ -1,7 +1,15 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
+
+// Declare speech recognition types
+declare global {
+  interface Window {
+    SpeechRecognition: unknown
+    webkitSpeechRecognition: unknown
+  }
+}
 
 interface Message {
   id: string
@@ -14,7 +22,110 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([])
   const [inputText, setInputText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [isListening, setIsListening] = useState(false)
+  const [speechSupported, setSpeechSupported] = useState(false)
+  const [isRecording, setIsRecording] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recognitionRef = useRef<any>(null)
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null)
+  const audioChunksRef = useRef<Blob[]>([])
+
+  // Initialize speech recognition
+  const handleMicrophoneClick = () => {
+    // Try Web Speech API first (works in Chrome, Edge, Safari Desktop)
+    if (recognitionRef.current && speechSupported) {
+      if (isListening) {
+        recognitionRef.current.stop()
+        setIsListening(false)
+      } else {
+        try {
+          setIsListening(true)
+          recognitionRef.current.start()
+        } catch (error) {
+          console.error('Error starting speech recognition:', error)
+          setIsListening(false)
+          // Fallback to audio recording
+          startAudioRecording()
+        }
+      }
+    } else {
+      // Fallback to audio recording for browsers without Speech API
+      if (isRecording) {
+        stopAudioRecording()
+      } else {
+        startAudioRecording()
+      }
+    }
+  }
+
+  const startAudioRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      const mediaRecorder = new MediaRecorder(stream)
+      mediaRecorderRef.current = mediaRecorder
+      audioChunksRef.current = []
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data)
+        }
+      }
+
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' })
+        await transcribeAudio(audioBlob)
+        
+        // Clean up
+        stream.getTracks().forEach(track => track.stop())
+        setIsRecording(false)
+      }
+
+      mediaRecorder.start()
+      setIsRecording(true)
+    } catch (error) {
+      console.error('Error starting audio recording:', error)
+      alert('Error al acceder al micrófono. Verifica los permisos.')
+    }
+  }
+
+  const stopAudioRecording = () => {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+      mediaRecorderRef.current.stop()
+    }
+  }
+
+  const transcribeAudio = async (audioBlob: Blob) => {
+    try {
+      const formData = new FormData()
+      formData.append('audio', audioBlob, 'recording.wav')
+
+      const response = await fetch('/api/transcribe', {
+        method: 'POST',
+        body: formData
+      })
+
+      if (response.ok) {
+        const { transcript } = await response.json()
+        if (transcript) {
+          setInputText(transcript)
+          
+          // Auto-enviar mensaje cuando termine de hablar
+          setTimeout(() => {
+            if (transcript.trim()) {
+              handleSendMessage(transcript.trim())
+            }
+          }, 500)
+        }
+      } else {
+        console.error('Transcription failed')
+        alert('Error en la transcripción. Intenta de nuevo.')
+      }
+    } catch (error) {
+      console.error('Error transcribing audio:', error)
+      alert('Error en la transcripción. Intenta de nuevo.')
+    }
+  }
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -29,19 +140,24 @@ export default function Home() {
     setInputText('')
   }
 
-  const handleSendMessage = async () => {
-    if (!inputText.trim() || isLoading) return
+  const handleSendMessage = useCallback(async (messageText?: string) => {
+    const textToSend = messageText || inputText.trim()
+    if (!textToSend || isLoading) return
 
     const userMessage: Message = {
       id: Date.now().toString(),
-      text: inputText.trim(),
+      text: textToSend,
       isUser: true,
       timestamp: new Date()
     }
 
     // Agregar el mensaje del usuario inmediatamente
     setMessages(prev => [...prev, userMessage])
-    setInputText('')
+    
+    // Solo limpiar input si no se pasó texto como parámetro
+    if (!messageText) {
+      setInputText('')
+    }
     setIsLoading(true)
 
     try {
@@ -88,13 +204,74 @@ export default function Home() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [inputText, isLoading])
+
+  // Initialize speech recognition
+  useEffect(() => {
+    const checkSpeechSupport = () => {
+      // Check for different browser implementations
+      const hasWebkitSpeechRecognition = 'webkitSpeechRecognition' in window
+      const hasSpeechRecognition = 'SpeechRecognition' in window
+      
+      return hasWebkitSpeechRecognition || hasSpeechRecognition
+    }
+
+    if (typeof window !== 'undefined' && checkSpeechSupport()) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        recognitionRef.current = new SpeechRecognition() as any
+        
+        if (recognitionRef.current) {
+          recognitionRef.current.continuous = false
+          recognitionRef.current.interimResults = false
+          recognitionRef.current.lang = 'es-ES'
+          
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          recognitionRef.current.onresult = (event: any) => {
+            const transcript = event.results[0][0].transcript
+            setInputText(transcript)
+            setIsListening(false)
+            
+            // Auto-enviar mensaje cuando termine de hablar
+            setTimeout(() => {
+              if (transcript.trim()) {
+                handleSendMessage(transcript.trim())
+              }
+            }, 500)
+          }
+          
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          recognitionRef.current.onerror = (error: any) => {
+            console.warn('Speech recognition error:', error)
+            setIsListening(false)
+          }
+          
+          recognitionRef.current.onend = () => {
+            setIsListening(false)
+          }
+          
+          setSpeechSupported(true)
+        }
+      } catch (error) {
+        console.warn('Speech recognition not supported:', error)
+        setSpeechSupported(false)
+      }
+    } else {
+      setSpeechSupported(false)
+    }
+  }, [handleSendMessage])
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       handleSendMessage()
     }
+  }
+
+  const handleButtonClick = () => {
+    handleSendMessage()
   }
 
   return (
@@ -283,6 +460,25 @@ export default function Home() {
                     className="flex-1 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 border-2 border-[#C6D870] rounded-lg lg:rounded-xl focus:outline-none focus:border-[#8FA31E] focus:ring-2 focus:ring-[#8FA31E]/20 transition-all duration-200 bg-white text-[#556B2F] placeholder-gray-400 text-sm sm:text-base lg:text-lg shadow-inner"
                     disabled={isLoading}
                   />
+                  {/* Microphone Button - Universal Voice Input */}
+                  <button
+                    onClick={handleMicrophoneClick}
+                    disabled={isLoading}
+                    className={`px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base ${
+                      (isListening || isRecording)
+                        ? 'bg-red-500 hover:bg-red-600 text-white animate-pulse' 
+                        : 'bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white'
+                    }`}
+                    title={
+                      isListening 
+                        ? "Escuchando... Click para parar" 
+                        : isRecording 
+                        ? "Grabando... Click para parar"
+                        : "Click para hablar"
+                    }
+                  >
+                    {(isListening || isRecording) ? '🔴' : '🎤'}
+                  </button>
                   {messages.length > 0 && (
                     <button
                       onClick={handleResetChat}
@@ -294,7 +490,7 @@ export default function Home() {
                     </button>
                   )}
                   <button
-                    onClick={handleSendMessage}
+                    onClick={handleButtonClick}
                     disabled={!inputText.trim() || isLoading}
                     className="bg-gradient-to-r from-[#8FA31E] to-[#556B2F] hover:from-[#556B2F] hover:to-[#8FA31E] disabled:bg-gray-300 text-white px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base"
                   >
