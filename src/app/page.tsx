@@ -40,6 +40,32 @@ export default function Home() {
     setIsLoading(true)
 
     try {
+      // Buscar contexto relevante en documentos de FEDEPALMA
+      let context = ''
+      try {
+        const searchResponse = await fetch('/api/search/documents', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            query: userMessage.text,
+            limit: 3
+          })
+        })
+
+        if (searchResponse.ok) {
+          const searchData = await searchResponse.json()
+          if (searchData.success && searchData.results?.length > 0) {
+            context = searchData.results
+              .map((result: {title: string, content: string}) => `${result.title}: ${result.content}`)
+              .join('\n\n')
+          }
+        }
+      } catch (searchError) {
+        console.log('Búsqueda en documentos no disponible:', searchError)
+      }
+
       const response = await fetch('/api/chat/complete', {
         method: 'POST',
         headers: {
@@ -47,6 +73,7 @@ export default function Home() {
         },
         body: JSON.stringify({
           message: userMessage.text,
+          context: context,
           history: messages.slice(-4).map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }))
         }),
       })
