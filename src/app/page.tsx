@@ -1,6 +1,5 @@
 'use client'
 
-import PWAInstallPrompt from '@/components/ui/PWAInstallPrompt'
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 
@@ -25,6 +24,11 @@ export default function Home() {
     scrollToBottom()
   }, [messages])
 
+  const handleResetChat = () => {
+    setMessages([])
+    setInputText('')
+  }
+
   const handleSendMessage = async () => {
     if (!inputText.trim() || isLoading) return
 
@@ -35,54 +39,34 @@ export default function Home() {
       timestamp: new Date()
     }
 
+    // Agregar el mensaje del usuario inmediatamente
     setMessages(prev => [...prev, userMessage])
     setInputText('')
     setIsLoading(true)
 
     try {
-      // Buscar contexto relevante en documentos de FEDEPALMA
-      let context = ''
-      try {
-        const searchResponse = await fetch('/api/search/documents', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            query: userMessage.text,
-            limit: 3
-          })
-        })
-
-        if (searchResponse.ok) {
-          const searchData = await searchResponse.json()
-          if (searchData.success && searchData.results?.length > 0) {
-            context = searchData.results
-              .map((result: {title: string, content: string}) => `${result.title}: ${result.content}`)
-              .join('\n\n')
-          }
-        }
-      } catch (searchError) {
-        console.log('Búsqueda en documentos no disponible:', searchError)
-      }
-
-      const response = await fetch('/api/chat/complete', {
+      console.log(`🔍 Enviando consulta: ${userMessage.text}`)
+      
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           message: userMessage.text,
-          context: context,
-          history: messages.slice(-4).map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }))
         }),
       })
 
+      console.log(`📡 Respuesta del servidor: ${response.status}`)
+      
       if (!response.ok) {
-        throw new Error('Error en la respuesta del servidor')
+        const errorText = await response.text()
+        console.error(`❌ Error del servidor: ${errorText}`)
+        throw new Error(`Error en la respuesta del servidor: ${response.status}`)
       }
 
       const data = await response.json()
+      console.log(`✅ Respuesta recibida: ${data.response?.length || 0} caracteres`)
       
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -93,7 +77,7 @@ export default function Home() {
 
       setMessages(prev => [...prev, botMessage])
     } catch (error) {
-      console.error('Error al enviar mensaje:', error)
+      console.error('❌ Error al enviar mensaje:', error)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: 'Lo siento, hubo un error al procesar tu consulta. Por favor intenta de nuevo.',
@@ -220,25 +204,25 @@ export default function Home() {
                         onClick={() => setInputText('¿Qué es el Grupo Guaicaramo y cuáles son sus empresas?')}
                         className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
-                        🏢 ¿Qué es Guaicaramo?
+                        ☘️ ¿Qué es Guaicaramo?
                       </button>
                       <button
                         onClick={() => setInputText('Cuéntame sobre DAO y sus servicios')}
                         className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
-                        🔧 Servicios DAO
+                        ☘️ Servicios DAO
                       </button>
                       <button
                         onClick={() => setInputText('¿Qué hace la Fundación Guaicaramo?')}
                         className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
-                        🌱 Fundación
+                        ☘️ Fundación
                       </button>
                       <button
                         onClick={() => setInputText('Explícame sobre Sirius y sus tecnologías')}
                         className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
-                        🚀 Sirius Tech
+                        ☘️ Sirius Tech
                       </button>
                     </div>
                   </div>
@@ -299,6 +283,16 @@ export default function Home() {
                     className="flex-1 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 border-2 border-[#C6D870] rounded-lg lg:rounded-xl focus:outline-none focus:border-[#8FA31E] focus:ring-2 focus:ring-[#8FA31E]/20 transition-all duration-200 bg-white text-[#556B2F] placeholder-gray-400 text-sm sm:text-base lg:text-lg shadow-inner"
                     disabled={isLoading}
                   />
+                  {messages.length > 0 && (
+                    <button
+                      onClick={handleResetChat}
+                      className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-2 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-xs sm:text-sm lg:text-base"
+                      title="Reiniciar chat"
+                    >
+                      <span className="hidden sm:inline">🔄 Nuevo</span>
+                      <span className="sm:hidden">🔄</span>
+                    </button>
+                  )}
                   <button
                     onClick={handleSendMessage}
                     disabled={!inputText.trim() || isLoading}
@@ -326,10 +320,10 @@ export default function Home() {
                 <span className="text-2xl mr-3">📞</span>
                 Contacto
               </h3>
-              <div className="space-y-2 text-sm text-[#C6D870]">
-                <div>📧 info@fedepalma.org</div>
-                <div>🌐 www.fedepalma.org</div>
-                <div>📱 +57 (1) 313-8600</div>
+              <div className="space-y-2 text-sm text-[#C6D870] break-words">
+                <div className="break-all">📧 marketingsirius@siriusregenerative.com</div>
+                <div>📱 +57 320 865 3324</div>
+                <div>📍 Kl-7 Via Cabuyaro Barranca de Upía</div>
               </div>
             </div>
           </div>
@@ -337,8 +331,6 @@ export default function Home() {
 
         {/* Footer removed for minimalist design */}
       </main>
-
-      <PWAInstallPrompt />
     </div>
   )
 }

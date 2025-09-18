@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Poppins, Roboto } from 'next/font/google';
 import { metadata as siteMetadata } from './metadata';
-import { PWA_CONFIG } from '@/lib/utils/constants';
 import './globals.css';
 
 const inter = Inter({
@@ -24,7 +23,7 @@ const roboto = Roboto({
 export const metadata: Metadata = siteMetadata;
 
 export const viewport: Viewport = {
-  themeColor: PWA_CONFIG.theme_color,
+  themeColor: '#2D7A2D',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
