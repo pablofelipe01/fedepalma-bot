@@ -84,6 +84,12 @@ SERVICIOS SIRIUS:
 - Captura de carbono mediante biochar
 - Regeneración de suelos
 
+CONTACTO SIRIUS REGENERATIVE:
+- Sitio web: https://www.siriusregenerative.co
+- Dirección: Kl-7 Via Cabuyaro Barranca de Upía
+- Teléfono: +57 320 865 3324
+- Email: marketingsirius@siriusregenerative.com
+
 CONOCIMIENTO ESPECIALIZADO:
 - Palmicultura colombiana y técnicas de cultivo
 - Variedades de palma: OxG, alto oleico (HOPO), tradicionales
