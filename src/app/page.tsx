@@ -33,8 +33,11 @@ export default function Home() {
 
   // Initialize speech recognition
   const handleMicrophoneClick = () => {
-    // Try Web Speech API first (works in Chrome, Edge, Safari Desktop)
+    console.log(`🎤 Botón micrófono presionado. speechSupported: ${speechSupported}, recognitionRef: ${!!recognitionRef.current}`)
+    
+    // Try Web Speech API first (solo Chrome/Edge desktop)
     if (recognitionRef.current && speechSupported) {
+      console.log('🎤 Usando Web Speech API')
       if (isListening) {
         recognitionRef.current.stop()
         setIsListening(false)
@@ -43,37 +46,96 @@ export default function Home() {
           setIsListening(true)
           recognitionRef.current.start()
         } catch (error) {
-          console.error('Error starting speech recognition:', error)
+          console.error('❌ Error starting speech recognition:', error)
           setIsListening(false)
           // Fallback to audio recording
+          console.log('🔄 Fallback a MediaRecorder')
           startAudioRecording()
         }
       }
     } else {
       // Fallback to audio recording for browsers without Speech API
+      console.log('🎤 Usando MediaRecorder + Deepgram')
       if (isRecording) {
+        console.log('🛑 Deteniendo grabación')
         stopAudioRecording()
       } else {
+        console.log('🔴 Iniciando grabación')
         startAudioRecording()
       }
     }
   }
 
   const startAudioRecording = async () => {
+    console.log('🎤 === INICIANDO GRABACIÓN DE AUDIO ===')
+    console.log('📱 User Agent:', navigator.userAgent)
+    console.log('🌐 Platform:', navigator.platform)
+    console.log('📐 Window size:', window.innerWidth, 'x', window.innerHeight)
+    console.log('🎥 MediaDevices disponible:', !!navigator.mediaDevices)
+    console.log('🎤 getUserMedia disponible:', !!navigator.mediaDevices?.getUserMedia)
+    
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      const mediaRecorder = new MediaRecorder(stream)
+      console.log('🎤 Iniciando grabación de audio...')
+      
+      // Verificar permisos primero en iOS
+      if (navigator.permissions) {
+        try {
+          const permission = await navigator.permissions.query({ name: 'microphone' as PermissionName })
+          console.log('🔐 Estado de permisos de micrófono:', permission.state)
+        } catch (permError) {
+          console.log('⚠️ No se pudo verificar permisos:', permError)
+        }
+      }
+      
+      // iPhone necesita configuraciones específicas
+      const constraints = {
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
+          // Configuraciones específicas para iOS
+          sampleRate: 16000,
+          channelCount: 1
+        }
+      }
+      
+      const stream = await navigator.mediaDevices.getUserMedia(constraints)
+      console.log('✅ Stream de audio obtenido')
+      
+      // Verificar si MediaRecorder está disponible
+      if (!window.MediaRecorder || !MediaRecorder.isTypeSupported('audio/webm')) {
+        console.log('⚠️ MediaRecorder no soporta audio/webm, intentando audio/mp4')
+        if (!MediaRecorder.isTypeSupported('audio/mp4')) {
+          console.log('⚠️ Intentando con audio/wav')
+        }
+      }
+      
+      // Usar el mejor formato disponible para iPhone
+      let mimeType = 'audio/webm'
+      if (MediaRecorder.isTypeSupported('audio/mp4')) {
+        mimeType = 'audio/mp4'
+      } else if (MediaRecorder.isTypeSupported('audio/wav')) {
+        mimeType = 'audio/wav'
+      }
+      
+      console.log(`🎵 Usando formato: ${mimeType}`)
+      
+      const mediaRecorder = new MediaRecorder(stream, { mimeType })
       mediaRecorderRef.current = mediaRecorder
       audioChunksRef.current = []
 
       mediaRecorder.ondataavailable = (event) => {
+        console.log(`📊 Datos disponibles: ${event.data.size} bytes`)
         if (event.data.size > 0) {
           audioChunksRef.current.push(event.data)
         }
       }
 
       mediaRecorder.onstop = async () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' })
+        console.log('🛑 Grabación detenida, procesando...')
+        const audioBlob = new Blob(audioChunksRef.current, { type: mimeType })
+        console.log(`📄 Blob creado: ${audioBlob.size} bytes, tipo: ${audioBlob.type}`)
+        
         await transcribeAudio(audioBlob)
         
         // Clean up
@@ -81,11 +143,33 @@ export default function Home() {
         setIsRecording(false)
       }
 
-      mediaRecorder.start()
+      mediaRecorder.onerror = (event) => {
+        console.error('❌ Error en MediaRecorder:', event)
+        alert('Error durante la grabación. Intenta de nuevo.')
+        setIsRecording(false)
+      }
+
+      // Empezar grabación
+      mediaRecorder.start(1000) // Recopilar datos cada segundo
       setIsRecording(true)
+      console.log('🔴 Grabación iniciada')
+      
     } catch (error) {
-      console.error('Error starting audio recording:', error)
-      alert('Error al acceder al micrófono. Verifica los permisos.')
+      console.error('❌ Error starting audio recording:', error)
+      setIsRecording(false)
+      
+      // Mensaje más específico para iPhone
+      if (error instanceof Error) {
+        if (error.name === 'NotAllowedError') {
+          alert('Permisos de micrófono denegados. Ve a Configuración > Safari > Micrófono y permite el acceso.')
+        } else if (error.name === 'NotFoundError') {
+          alert('No se encontró micrófono. Verifica que tu dispositivo tenga micrófono.')
+        } else {
+          alert(`Error al acceder al micrófono: ${error.message}`)
+        }
+      } else {
+        alert('Error al acceder al micrófono. Intenta de nuevo.')
+      }
     }
   }
 
@@ -97,17 +181,32 @@ export default function Home() {
 
   const transcribeAudio = async (audioBlob: Blob) => {
     try {
+      console.log(`🎵 Enviando audio a transcripción: ${audioBlob.size} bytes, tipo: ${audioBlob.type}`)
+      
+      // Determinar el nombre del archivo basado en el tipo
+      let fileName = 'recording.wav'
+      if (audioBlob.type.includes('mp4')) {
+        fileName = 'recording.mp4'
+      } else if (audioBlob.type.includes('webm')) {
+        fileName = 'recording.webm'
+      }
+      
       const formData = new FormData()
-      formData.append('audio', audioBlob, 'recording.wav')
+      formData.append('audio', audioBlob, fileName)
 
+      console.log('📤 Enviando a /api/transcribe...')
       const response = await fetch('/api/transcribe', {
         method: 'POST',
         body: formData
       })
 
+      console.log(`📡 Respuesta del servidor: ${response.status}`)
+      
       if (response.ok) {
         const { transcript } = await response.json()
-        if (transcript) {
+        console.log(`✅ Transcripción recibida: "${transcript}"`)
+        
+        if (transcript && transcript.trim()) {
           setInputText(transcript)
           
           // Auto-enviar mensaje cuando termine de hablar
@@ -116,14 +215,18 @@ export default function Home() {
               handleSendMessage(transcript.trim())
             }
           }, 500)
+        } else {
+          console.log('⚠️ Transcripción vacía')
+          alert('No se pudo transcribir el audio. Intenta hablar más claro.')
         }
       } else {
-        console.error('Transcription failed')
+        const errorText = await response.text()
+        console.error(`❌ Error del servidor: ${response.status} - ${errorText}`)
         alert('Error en la transcripción. Intenta de nuevo.')
       }
     } catch (error) {
-      console.error('Error transcribing audio:', error)
-      alert('Error en la transcripción. Intenta de nuevo.')
+      console.error('❌ Error transcribing audio:', error)
+      alert('Error en la transcripción. Verifica tu conexión a internet.')
     }
   }
 
@@ -209,11 +312,35 @@ export default function Home() {
   // Initialize speech recognition
   useEffect(() => {
     const checkSpeechSupport = () => {
+      // Detectar iPhone/iOS específicamente - MÁS ESTRICTO
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) // iPad en modo desktop
+      const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)
+      const isMobile = window.innerWidth <= 768 || /Mobi|Android/i.test(navigator.userAgent)
+      
+      // FORZAR MediaRecorder en iOS, Safari mobile, o dispositivos móviles
+      if (isIOS || (isSafari && isMobile)) {
+        console.log('📱 iOS/Safari mobile detectado - FORZANDO MediaRecorder + Deepgram')
+        return false
+      }
+      
+      // Solo permitir Web Speech API en Chrome/Edge desktop
+      const isChrome = /Chrome/.test(navigator.userAgent) && !/Edge/.test(navigator.userAgent)
+      const isEdge = /Edge/.test(navigator.userAgent)
+      const isDesktop = window.innerWidth > 768
+      
+      if (!isDesktop || (!isChrome && !isEdge)) {
+        console.log('📱 No es Chrome/Edge desktop - usando MediaRecorder')
+        return false
+      }
+      
       // Check for different browser implementations
       const hasWebkitSpeechRecognition = 'webkitSpeechRecognition' in window
       const hasSpeechRecognition = 'SpeechRecognition' in window
       
-      return hasWebkitSpeechRecognition || hasSpeechRecognition
+      const hasSupport = hasWebkitSpeechRecognition || hasSpeechRecognition
+      console.log(`🎤 Web Speech API disponible y permitido: ${hasSupport}`)
+      return hasSupport
     }
 
     if (typeof window !== 'undefined' && checkSpeechSupport()) {
