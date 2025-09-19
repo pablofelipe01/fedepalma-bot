@@ -283,7 +283,7 @@ export default function Home() {
           <div className="lg:col-span-3 h-full">
             <div className="bg-white rounded-none sm:rounded-xl lg:rounded-2xl shadow-none sm:shadow-xl lg:shadow-2xl border-0 sm:border border-gray-200 overflow-hidden h-full">
               {/* Chat Messages */}
-              <div className="h-[calc(100vh-140px)] sm:h-[500px] lg:h-[600px] overflow-y-auto p-3 sm:p-4 lg:p-6 space-y-3 sm:space-y-4 lg:space-y-6 bg-white">
+              <div className="h-[calc(100vh-160px)] sm:h-[500px] lg:h-[600px] overflow-y-auto p-3 sm:p-4 lg:p-6 space-y-3 sm:space-y-4 lg:space-y-6 bg-white">
                 {messages.length === 0 && (
                   <div className="text-center py-6 sm:py-12 lg:py-20">
                     {/* Unified Logos del Grupo Guaicaramo */}
@@ -450,7 +450,8 @@ export default function Home() {
 
               {/* Input Area - Mobile Optimized */}
               <div className="border-t border-gray-200 bg-white p-2 sm:p-4 lg:p-6 absolute bottom-0 left-0 right-0 sm:relative">
-                <div className="flex space-x-1.5 sm:space-x-2 lg:space-x-4">
+                {/* Primera línea: Input + Micrófono */}
+                <div className="flex space-x-2 mb-2 sm:mb-0">
                   <input
                     type="text"
                     value={inputText}
@@ -479,31 +480,58 @@ export default function Home() {
                   >
                     {(isListening || isRecording) ? '🔴' : '🎤'}
                   </button>
-                  {messages.length > 0 && (
-                    <button
-                      onClick={handleResetChat}
-                      className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-2 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-xs sm:text-sm lg:text-base"
-                      title="Reiniciar chat"
-                    >
-                      <span className="hidden sm:inline">🔄 Nuevo</span>
-                      <span className="sm:hidden">🔄</span>
-                    </button>
-                  )}
+                  {/* Botón enviar - Solo en desktop */}
                   <button
                     onClick={handleButtonClick}
                     disabled={!inputText.trim() || isLoading}
-                    className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 text-white px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow hover:shadow-lg disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base"
+                    className="hidden sm:flex bg-green-500 hover:bg-green-600 disabled:bg-gray-300 text-white px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow hover:shadow-lg disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base items-center justify-center"
                   >
                     {isLoading ? (
                       <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 border-2 sm:border-3 border-white border-t-transparent rounded-full animate-spin" />
                     ) : (
                       <>
                         <span className="hidden sm:inline">Enviar</span>
-                        <span className="sm:hidden">📤</span>
+                        <span className="sm:hidden">�</span>
                       </>
                     )}
                   </button>
                 </div>
+
+                {/* Segunda línea: Botones - Solo en mobile */}
+                <div className="flex space-x-2 sm:hidden">
+                  <button
+                    onClick={handleButtonClick}
+                    disabled={!inputText.trim() || isLoading}
+                    className="flex-1 bg-green-500 hover:bg-green-600 disabled:bg-gray-300 text-white px-4 py-2.5 rounded-lg transition-all duration-300 font-bold shadow hover:shadow-lg disabled:cursor-not-allowed text-sm flex items-center justify-center"
+                  >
+                    {isLoading ? (
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <>📤 Enviar</>
+                    )}
+                  </button>
+                  {messages.length > 0 && (
+                    <button
+                      onClick={handleResetChat}
+                      className="flex-1 bg-gray-500 hover:bg-gray-600 text-white px-4 py-2.5 rounded-lg transition-all duration-300 font-bold shadow hover:shadow-lg text-sm flex items-center justify-center"
+                      title="Reiniciar chat"
+                    >
+                      🔄 Nuevo
+                    </button>
+                  )}
+                </div>
+
+                {/* Desktop: Botón restart en la misma línea que los otros */}
+                {messages.length > 0 && (
+                  <button
+                    onClick={handleResetChat}
+                    className="hidden sm:block absolute top-2 right-2 sm:relative sm:top-auto sm:right-auto bg-gray-500 hover:bg-gray-600 text-white px-2 sm:px-4 lg:px-6 py-1 sm:py-2.5 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow hover:shadow-lg text-xs sm:text-sm lg:text-base"
+                    title="Reiniciar chat"
+                  >
+                    <span className="hidden sm:inline">🔄 Nuevo</span>
+                    <span className="sm:hidden">🔄</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
