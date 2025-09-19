@@ -275,15 +275,15 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#EFF5D2] to-white">
+    <div className="min-h-screen bg-white">
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-2 sm:px-4 py-2 sm:py-4 lg:py-8">
-        <div className="grid lg:grid-cols-4 gap-4 lg:gap-8">
+      <main className="h-screen max-w-full mx-auto px-0 sm:px-2 lg:px-4 py-0 sm:py-2 lg:py-4">
+        <div className="grid lg:grid-cols-4 gap-0 sm:gap-4 lg:gap-8 h-full">
           {/* Chat Section */}
-          <div className="lg:col-span-3">
-            <div className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl border border-[#C6D870]/30 overflow-hidden">
+          <div className="lg:col-span-3 h-full">
+            <div className="bg-white rounded-none sm:rounded-xl lg:rounded-2xl shadow-none sm:shadow-xl lg:shadow-2xl border-0 sm:border border-gray-200 overflow-hidden h-full">
               {/* Chat Messages */}
-              <div className="h-[70vh] sm:h-[500px] lg:h-[600px] overflow-y-auto p-3 sm:p-4 lg:p-6 space-y-3 sm:space-y-4 lg:space-y-6 bg-gradient-to-b from-white via-[#EFF5D2]/10 to-[#EFF5D2]/30">
+              <div className="h-[calc(100vh-140px)] sm:h-[500px] lg:h-[600px] overflow-y-auto p-3 sm:p-4 lg:p-6 space-y-3 sm:space-y-4 lg:space-y-6 bg-white">
                 {messages.length === 0 && (
                   <div className="text-center py-6 sm:py-12 lg:py-20">
                     {/* Unified Logos del Grupo Guaicaramo */}
@@ -379,25 +379,25 @@ export default function Home() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 lg:gap-4 max-w-2xl mx-auto px-3 sm:px-4">
                       <button
                         onClick={() => setInputText('¿Qué es el Grupo Guaicaramo y cuáles son sus empresas?')}
-                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow hover:shadow-lg transform hover:-translate-y-1"
                       >
                         ☘️ ¿Qué es Guaicaramo?
                       </button>
                       <button
                         onClick={() => setInputText('Cuéntame sobre DAO y sus servicios')}
-                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow hover:shadow-lg transform hover:-translate-y-1"
                       >
                         ☘️ Servicios DAO
                       </button>
                       <button
                         onClick={() => setInputText('¿Qué hace la Fundación Guaicaramo?')}
-                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow hover:shadow-lg transform hover:-translate-y-1"
                       >
                         ☘️ Fundación
                       </button>
                       <button
                         onClick={() => setInputText('Explícame sobre Sirius y sus tecnologías')}
-                        className="bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow hover:shadow-lg transform hover:-translate-y-1"
                       >
                         ☘️ Sirius Tech
                       </button>
@@ -449,7 +449,7 @@ export default function Home() {
               </div>
 
               {/* Input Area - Mobile Optimized */}
-              <div className="border-t-2 border-[#C6D870]/30 bg-gradient-to-r from-[#EFF5D2]/50 to-white p-2 sm:p-4 lg:p-6">
+              <div className="border-t border-gray-200 bg-white p-2 sm:p-4 lg:p-6 absolute bottom-0 left-0 right-0 sm:relative">
                 <div className="flex space-x-1.5 sm:space-x-2 lg:space-x-4">
                   <input
                     type="text"
@@ -457,17 +457,17 @@ export default function Home() {
                     onChange={(e) => setInputText(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Pregunta sobre Grupo Guaicaramo..."
-                    className="flex-1 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 border-2 border-[#C6D870] rounded-lg lg:rounded-xl focus:outline-none focus:border-[#8FA31E] focus:ring-2 focus:ring-[#8FA31E]/20 transition-all duration-200 bg-white text-[#556B2F] placeholder-gray-400 text-sm sm:text-base lg:text-lg shadow-inner"
+                    className="flex-1 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 border border-gray-300 rounded-lg lg:rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 bg-white text-gray-800 placeholder-gray-400 text-sm sm:text-base lg:text-lg"
                     disabled={isLoading}
                   />
                   {/* Microphone Button - Universal Voice Input */}
                   <button
                     onClick={handleMicrophoneClick}
                     disabled={isLoading}
-                    className={`px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base ${
+                    className={`px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow hover:shadow-lg disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base ${
                       (isListening || isRecording)
                         ? 'bg-red-500 hover:bg-red-600 text-white animate-pulse' 
-                        : 'bg-gradient-to-r from-[#C6D870] to-[#8FA31E] hover:from-[#8FA31E] hover:to-[#556B2F] text-[#556B2F] hover:text-white'
+                        : 'bg-blue-500 hover:bg-blue-600 text-white'
                     }`}
                     title={
                       isListening 
@@ -492,7 +492,7 @@ export default function Home() {
                   <button
                     onClick={handleButtonClick}
                     disabled={!inputText.trim() || isLoading}
-                    className="bg-gradient-to-r from-[#8FA31E] to-[#556B2F] hover:from-[#556B2F] hover:to-[#8FA31E] disabled:bg-gray-300 text-white px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow-lg hover:shadow-xl disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base"
+                    className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 text-white px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 font-bold shadow hover:shadow-lg disabled:cursor-not-allowed transform hover:-translate-y-1 disabled:transform-none text-sm sm:text-base"
                   >
                     {isLoading ? (
                       <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 border-2 sm:border-3 border-white border-t-transparent rounded-full animate-spin" />
