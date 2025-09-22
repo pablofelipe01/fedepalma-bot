@@ -508,13 +508,13 @@ export default function Home() {
                         onClick={() => setInputText('¿Qué es el Grupo Guaicaramo y cuáles son sus empresas?')}
                         className="bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow hover:shadow-lg transform hover:-translate-y-1"
                       >
-                        ☘️ ¿Qué es Guaicaramo?
+                        ☘️ Guaicaramo
                       </button>
                       <button
                         onClick={() => setInputText('Cuéntame sobre DAO y sus servicios')}
                         className="bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow hover:shadow-lg transform hover:-translate-y-1"
                       >
-                        ☘️ Servicios DAO
+                        ☘️ DAO
                       </button>
                       <button
                         onClick={() => setInputText('¿Qué hace la Fundación Guaicaramo?')}
@@ -523,10 +523,10 @@ export default function Home() {
                         ☘️ Fundación
                       </button>
                       <button
-                        onClick={() => setInputText('Explícame sobre Sirius y sus tecnologías')}
+                        onClick={() => setInputText('Háblame de Sirius y su Filosofía')}
                         className="bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 text-xs sm:text-sm font-semibold shadow hover:shadow-lg transform hover:-translate-y-1"
                       >
-                        ☘️ Sirius Tech
+                        ☘️ Sirius
                       </button>
                     </div>
                   </div>

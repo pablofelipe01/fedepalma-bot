@@ -1,0 +1,274 @@
+{
+  "sirius_regenerative": {
+    "identity": {
+      "legal_name": "Sirius Regenerative S.A.S.",
+      "brand": "Sirius Regenerative",
+      "founded_year": 2020,
+      "hq_city": "Barranca de Upía",
+      "country": "Colombia",
+      "official_website": "https://www.siriusregenerative.co"
+    },
+    "narrative": {
+      "es": "Sirius no es una empresa: es una plataforma de regeneración. Nacimos en 2020, en Barranca de Upía. Ya no alcanza con sostener: hay que revertir el daño. Regenerar el suelo, la biodiversidad, el espíritu y la comunidad. Trabajamos con fuego y con vida: en nuestros reactores practicamos la pirólisis para transformar biomasa residual en biochar; en el laboratorio cultivamos biológicos que protegen sin envenenar; y con inteligencia artificial (Agentics) damos consistencia desde la biofábrica hasta el surco. También hacemos pirólisis interna: convertir la basura energética en sabiduría. Ese es el Toque Sirius: pulidez, transparencia y entrega sin reservas. Co-creamos planes regenerativos con agricultores; compartimos conocimiento porque lo vivo florece en red. Nuestro llamado es claro: ‘Despierta tu alma: regenera el mundo’. Regenerar genera valor, adentro y afuera.",
+      "en": "Sirius is not a company; it is a regeneration platform. Born in 2020 in Barranca de Upía, we believe sustaining is not enough—we must reverse the damage. We regenerate soil, biodiversity, spirit, and community. We work with fire and life: in our reactors we run pyrolysis to turn residual biomass into biochar; in the lab we grow biologicals that protect crops without poisoning the land; and with AI (Agentics) we ensure consistency from biofactory to furrow. We also practice internal pyrolysis: turning energetic residue into wisdom. That is the Sirius Touch—polish, transparency, wholehearted dedication. We co-create regenerative plans with farmers and share knowledge because life thrives in networks. Our call is simple: ‘Awaken your soul: regenerate the world.’ Regeneration creates value—within and without."
+    },
+    "videos": [
+      {
+        "title": "Our Manifesto 4K – Sirius Regenerative",
+        "url": "https://youtu.be/lAADuRJ0tSU?si=_WRkHc7Mh2JL7eOU",
+        "role": "manifesto"
+      },
+      {
+        "title": "From Waste to Life: Inside the SIRIUS Pyrolysis Process 2.0",
+        "url": "https://youtu.be/hqCqPQWPdk0?si=1oaPjVezxtcW9ndu",
+        "role": "process"
+      }
+    ],
+    "holistic": {
+      "manifesto": {
+        "es": "No sostenemos: revertimos. Regeneramos suelo, biodiversidad, espíritu y comunidad. El mismo fuego que crea biochar nos transforma por dentro.",
+        "en": "We don’t merely sustain—we reverse. We regenerate soil, biodiversity, spirit, and community. The fire that makes biochar also transforms us within."
+      },
+      "toque_sirius": {
+        "definition_es": "Pulidez, transparencia y entrega sin reservas. Conocimiento abierto y tecnología compartida.",
+        "definition_en": "Polish, transparency, wholehearted dedication. Open knowledge and shared technology.",
+        "values": [
+          "Amor",
+          "Presencia",
+          "Humildad",
+          "Escucha",
+          "Unidad",
+          "Coherencia"
+        ],
+        "micro_practices": {
+          "es": [
+            "Respira 3 veces antes de decidir",
+            "Deja cada estación de trabajo mejor de como la encontraste"
+          ],
+          "en": [
+            "Take 3 conscious breaths before deciding",
+            "Leave every workstation better than you found it"
+          ]
+        }
+      },
+      "internal_pyrolysis": {
+        "es": "Ser conscientes de la basura energética y transmutarla en sabiduría. No reprimir; no quemarse: convertir energía en conciencia.",
+        "en": "Be aware of energetic residue and transmute it into wisdom. Not suppression; not burnout—turn energy into awareness."
+      },
+      "campaigns": [
+        {
+          "code": "despierta_tu_alma",
+          "name_es": "Despierta tu alma: Regenera el Mundo",
+          "name_en": "Awaken your soul: Regenerate the World",
+          "ctas": [
+            {
+              "id": "subscribe_updates",
+              "label_es": "Únete al movimiento",
+              "label_en": "Join the movement"
+            },
+            {
+              "id": "book_stand_visit",
+              "label_es": "Vive la experiencia en el stand",
+              "label_en": "Experience it at our booth"
+            }
+          ]
+        },
+        {
+          "code": "tu_alma_regenera_la_tierra",
+          "name_es": "Tu alma regenera la tierra",
+          "name_en": "Your soul regenerates the earth",
+          "ctas": [
+            {
+              "id": "request_quote",
+              "label_es": "Solicita tu plan regenerativo",
+              "label_en": "Request your regenerative plan"
+            },
+            {
+              "id": "subscribe_updates",
+              "label_es": "Recibe guías y rituales",
+              "label_en": "Get guides & rituals"
+            }
+          ]
+        }
+      ]
+    },
+    "products_services": {
+      "biochar_blends": [
+        {
+          "name": "Biochar Blend",
+          "description_es": "Mezclas de biochar con nutrientes y microbiología para suelos resilientes."
+        },
+        {
+          "name": "Star Dust",
+          "description_es": "Biochar formulado para mejorar retención de agua y estructura de suelo."
+        }
+      ],
+      "biologicos": [
+        {
+          "name": "Sirius Bacter",
+          "description_es": "Consorcio microbiano para fijación de nitrógeno, descomposición y control biológico."
+        },
+        {
+          "name": "Tratamiento Preventivo de Plagas",
+          "description_es": "Biocontrol natural con hongos y bacterias benéficas."
+        }
+      ],
+      "biofertilizantes": [
+        {
+          "name": "Abonos a base de biochar",
+          "description_es": "Fertilidad sostenible con soporte a biodiversidad del suelo."
+        }
+      ],
+      "services": [
+        {
+          "name": "Planes regenerativos a la medida",
+          "description_es": "Diagnóstico del terreno y diseño de manejo integral."
+        },
+        {
+          "name": "Acompañamiento técnico",
+          "description_es": "Implementación y seguimiento en campo con métricas de suelo."
+        }
+      ]
+    },
+    "process": {
+      "reactors_pyrolysis": {
+        "feedstock_es": "Biomasa residual de palma y otros cultivos",
+        "outputs": [
+          "Biochar"
+        ],
+        "purpose_es": "Estructura del suelo, retención de agua, hábitat microbiano, carbono estable"
+      },
+      "ai_pipeline": {
+        "name": "Agentics",
+        "role_es": "Orquestación y consistencia de procesos desde biofábrica hasta campo",
+        "benefits_es": [
+          "Trazabilidad",
+          "Calidad consistente",
+          "Escalabilidad"
+        ]
+      }
+    },
+    "testimonials": [
+      {
+        "cliente": "Hacienda La Cabaña S.A",
+        "sector": "Palma Africana",
+        "snippet_es": "Mayor producción y calidad al usar Biochar Blend."
+      },
+      {
+        "cliente": "Guaicaramo",
+        "sector": "Palma Africana",
+        "snippet_es": "Con Star Dust redujimos 40% de químicos y mejoró retención de agua."
+      },
+      {
+        "cliente": "SAPUGA",
+        "sector": "Palma Africana",
+        "snippet_es": "Parcela recuperada en 3 meses con combo regenerativo."
+      }
+    ],
+    "contact": {
+      "direccion": "Kl-7 Vía Cabuyaro, Barranca de Upía",
+      "telefono": "+57 320 865 3324",
+      "email": "marketingsirius@siriusregenerative.com"
+    },
+    "lead_gen_snippets": {
+      "es": [
+        "¿Qué cultivo manejas y en qué municipio? Te recomendamos un plan regenerativo a la medida.",
+        "¿Quieres estimar el CO₂ capturado con biochar en tu finca? Te ayudamos con una estimación rápida."
+      ],
+      "en": [
+        "What crop do you manage and where? We’ll recommend a tailored regenerative plan.",
+        "Want to estimate CO₂ captured with biochar on your farm? We’ll help with a quick estimate."
+      ]
+    },
+    "lead_capture_prompts": {
+      "es": [
+        "¿Te interesa Sirius? Déjanos tu WhatsApp o correo y te contactamos hoy mismo.",
+        "¿Buscas una alianza o demo? Agenda una visita guiada al stand con nuestro equipo."
+      ],
+      "en": [
+        "Interested in Sirius? Share your WhatsApp or email and we’ll reach out today.",
+        "Looking for a partnership or live demo? Book a guided stand visit with our team."
+      ]
+    },
+    "microlearning_quiz": [
+      {
+        "id": "pyrolysis_inner",
+        "question_es": "En Sirius usamos ‘pirólisis interna’. ¿Qué significa?",
+        "question_en": "At Sirius we practice ‘internal pyrolysis’. What does it mean?",
+        "options_es": [
+          "Reprimir emociones",
+          "Ser consciente de la basura energética y transformarla en sabiduría",
+          "Quemarnos a punta de trabajo",
+          "Usar la rabia como motivación"
+        ],
+        "options_en": [
+          "Suppress emotions",
+          "Be aware of energetic residue and turn it into wisdom",
+          "Burn ourselves out with work",
+          "Use anger as motivation"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "biochar_benefits",
+        "question_es": "¿Cuáles son los principales beneficios del biochar?",
+        "question_en": "What are the main benefits of biochar?",
+        "options_es": [
+          "Mejor retención de agua",
+          "Aumento de CICE y hábitat microbiano",
+          "Secuestro de carbono estable",
+          "Todas las anteriores"
+        ],
+        "options_en": [
+          "Better water retention",
+          "Higher CEC & microbial habitat",
+          "Stable carbon sequestration",
+          "All of the above"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "process_name",
+        "question_es": "¿Cómo se llama el proceso que transforma biomasa en biochar?",
+        "question_en": "What is the process that turns biomass into biochar?",
+        "options_es": [
+          "Fermentación",
+          "Compostaje",
+          "Pirólisis",
+          "Gasificación húmeda"
+        ],
+        "options_en": [
+          "Fermentation",
+          "Composting",
+          "Pyrolysis",
+          "Wet gasification"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "toque_value",
+        "question_es": "¿Cuál de estos NO hace parte del Toque Sirius?",
+        "question_en": "Which of these is NOT part of the Sirius Touch?",
+        "options_es": [
+          "Pulidez",
+          "Transparencia",
+          "Entrega sin reservas",
+          "Esfuerzo"
+        ],
+        "options_en": [
+          "Polish",
+          "Transparency",
+          "Wholehearted dedication",
+          "Effort"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "cta_hint_ids": [
+      "subscribe_updates",
+      "book_stand_visit",
+      "request_quote"
+    ],
+    "last_updated": "2025-09-19"
+  }
+}
